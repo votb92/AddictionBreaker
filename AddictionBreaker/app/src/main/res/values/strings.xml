@@ -8,5 +8,10 @@
     <string name="form_name">Name:</string>
     <string name="form_age">Age:</string>
     <string name="form_addiction_type">What habit do you want to break?</string>
+    <array name="addictions">
+        <item>Cigarettes</item>
+        <item>Alcohol</item>
+        <item>Vaping/Juuling</item>
+    </array>
 
 </resources>
