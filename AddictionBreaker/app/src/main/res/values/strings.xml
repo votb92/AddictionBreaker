@@ -2,14 +2,11 @@
     <string name="app_name">Addiction Breaker</string>
     <string name="start_button">Start</string>
     <string name="background">background-img</string>
-<<<<<<< Updated upstream
-
-=======
     <string name="greeting">Welcome!</string>
     <string name="hint_name">Enter your name!</string>
     <string name="hint_age">How old are you?</string>
     <string name="form_name">Name:</string>
     <string name="form_age">Age:</string>
     <string name="form_addiction_type">What habit do you want to break?</string>
->>>>>>> Stashed changes
+
 </resources>
