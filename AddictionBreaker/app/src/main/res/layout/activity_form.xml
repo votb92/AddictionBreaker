@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPage">
+    tools:context=".Form">
 
     <TextView
         android:id="@+id/textView2"
@@ -51,15 +51,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="@string/form_age"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+        app:layout_constraintBottom_toTopOf="@+id/age"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/age"
         android:layout_width="0dp"
         android:layout_height="43dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="24dp"
         android:autofillHints="00"
         android:ems="10"
@@ -93,12 +93,32 @@
 
     <Spinner
         android:id="@+id/spinner"
+<<<<<<< Updated upstream:AddictionBreaker/app/src/main/res/layout/activity_main_page.xml
         android:layout_width="361dp"
         android:layout_height="33dp"
         android:layout_marginTop="44dp"
+=======
+        android:layout_width="355dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="276dp"
+        android:entries="@array/addictions"
+        android:hapticFeedbackEnabled="true"
+>>>>>>> Stashed changes:AddictionBreaker/app/src/main/res/layout/activity_form.xml
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/age" />
+
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/form_confirm_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

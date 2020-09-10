@@ -7,24 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class Form extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_form);
 
-        Button startButton = findViewById(R.id.start_button);
+        Button startButton = findViewById(R.id.confirm_button);
         startButton.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Form.class);
+                Intent intent = new Intent(Form.this, ConsumptionInfo.class);
                 startActivity(intent);
-            }
+        }
 
         });
-
-
     }
 }
