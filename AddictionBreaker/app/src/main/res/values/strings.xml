@@ -1,17 +1,69 @@
 <resources>
+    <!--
+    BIG COMMENT GENERATOR:
+
+    http://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=Type%20Something%20
+
+    TEMPLATES:
+
+    <string name=""></string>
+
+    -->
+
+    <!--
+                                        ███╗   ███╗ █████╗ ██╗███╗   ██╗
+                                        ████╗ ████║██╔══██╗██║████╗  ██║
+                                        ██╔████╔██║███████║██║██╔██╗ ██║
+                                        ██║╚██╔╝██║██╔══██║██║██║╚██╗██║
+                                        ██║ ╚═╝ ██║██║  ██║██║██║ ╚████║
+                                        ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+    -->
     <string name="app_name">Addiction Breaker</string>
     <string name="start_button">Start</string>
     <string name="background">background-img</string>
-    <string name="greeting">Welcome!</string>
+
+    <!--
+                                        ███████╗ ██████╗ ██████╗ ███╗   ███╗
+                                        ██╔════╝██╔═══██╗██╔══██╗████╗ ████║
+                                        █████╗  ██║   ██║██████╔╝██╔████╔██║
+                                        ██╔══╝  ██║   ██║██╔══██╗██║╚██╔╝██║
+                                        ██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║
+                                        ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
+     -->
+    <string name="greeting">Let\'s get started!</string>
     <string name="hint_name">Enter your name!</string>
     <string name="hint_age">How old are you?</string>
     <string name="form_name">Name:</string>
+    <string name="form_confirm_button">CONFIRM</string>
     <string name="form_age">Age:</string>
+<<<<<<< Updated upstream
     <string name="form_addiction_type">What habit do you want to break?</string>
+=======
+    <string name="form_addiction_type">What is the addiction you would like to get rid of?</string>
     <array name="addictions">
         <item>Cigarettes</item>
         <item>Alcohol</item>
         <item>Vaping/Juuling</item>
     </array>
+    <!--
+     ██████╗ ██████╗ ███╗   ██╗███████╗██╗   ██╗███╗   ███╗████████╗██╗ ██████╗ ███╗   ██╗    ██╗███╗   ██╗███████╗ ██████╗
+    ██╔════╝██╔═══██╗████╗  ██║██╔════╝██║   ██║████╗ ████║╚══██╔══╝██║██╔═══██╗████╗  ██║    ██║████╗  ██║██╔════╝██╔═══██╗
+    ██║     ██║   ██║██╔██╗ ██║███████╗██║   ██║██╔████╔██║   ██║   ██║██║   ██║██╔██╗ ██║    ██║██╔██╗ ██║█████╗  ██║   ██║
+    ██║     ██║   ██║██║╚██╗██║╚════██║██║   ██║██║╚██╔╝██║   ██║   ██║██║   ██║██║╚██╗██║    ██║██║╚██╗██║██╔══╝  ██║   ██║
+    ╚██████╗╚██████╔╝██║ ╚████║███████║╚██████╔╝██║ ╚═╝ ██║   ██║   ██║╚██████╔╝██║ ╚████║    ██║██║ ╚████║██║     ╚██████╔╝
+     ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝ ╚═════╝ ╚═╝     ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═╝╚═╝  ╚═══╝╚═╝      ╚═════╝
+
+    -->
+
+
+    <string name="consumption_info_greeting">A few more questions</string>
+    <!-- %1$s is not a typo, it's a placeholder
+    readmore: https://stackoverflow.com/questions/3656371/is-it-possible-dynamically-to-add-string-to-string-xml-in-android
+    -->
+    <string name="consumption_info_how_frequent">How many %1$s, on average, do you consume a day?</string>
+    <string name="consumption_info_amount">Enter Amount</string>
+    <string name="consumption_info_cost">How much do you usually pay for a %1$s?</string>
+    <string name="consumption_info_letsGo_btn">LET\'S GO!</string>
+>>>>>>> Stashed changes
 
 </resources>
