@@ -60,7 +60,7 @@
     -->
     <string name="consumption_info_how_frequent">How many %1$s, on average, do you consume a day?</string>
     <string name="consumption_info_amount">Enter Amount</string>
-    <string name="consumption_info_cost">How much do you usually pay for a %1$s?</string>
+    <string name="consumption_info_cost">How much do you usually spend on %1$s?</string>
     <string name="consumption_info_letsGo_btn">LET\'S GO!</string>
 
 
