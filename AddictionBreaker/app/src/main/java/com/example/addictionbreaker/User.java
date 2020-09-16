@@ -14,6 +14,11 @@ public class User {
         this.consumption = consumption;
         this.costOfAddiction = costOfAddiction;
     }
+    public User(String name, String addiction, int age){
+        this.name = name;
+        this. addiction = addiction;
+        this.age = age;
+    }
 
     public String getName(){
         return this.name;
