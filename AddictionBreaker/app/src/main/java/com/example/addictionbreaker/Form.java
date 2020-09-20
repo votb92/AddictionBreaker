@@ -43,6 +43,7 @@ public class Form extends AppCompatActivity {
                     a.show();
                 }
                 else {
+                    //Save user info
                     User user = new User(name.getText().toString(),addiction.getSelectedItem().toString(),Integer.parseInt(age.getText().toString()));
                     String info = gson.toJson(user);
                     myPrefs.edit().putString("userInfo", info).commit();
