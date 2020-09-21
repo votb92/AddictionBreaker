@@ -18,22 +18,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/consumption_info_how_frequent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="@string/consumption_info_how_frequent"
         app:layout_constraintBottom_toTopOf="@+id/averageConsumption"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/consumption_info_how_frequent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/consumption_info_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="@string/consumption_info_cost"
         app:layout_constraintBottom_toTopOf="@+id/averageCost"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="@string/consumption_info_cost" />
 
     <EditText
         android:id="@+id/averageConsumption"
