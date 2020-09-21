@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+//a comment
 
 public class ConsumptionInfo extends AppCompatActivity {
     private String string1;
