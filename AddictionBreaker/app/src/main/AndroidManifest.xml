@@ -9,10 +9,10 @@
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".ConsumptionInfo" />
-        <activity android:name=".Form" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.HomeActivity"></activity>
+        <activity android:name=".ui.ConsumptionInfoActivity" />
+        <activity android:name=".ui.FormActivity" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

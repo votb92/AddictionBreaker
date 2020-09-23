@@ -1,4 +1,4 @@
-package com.example.addictionbreaker;
+package com.example.addictionbreaker.model;
 
 public class User {
     private String name, addiction;

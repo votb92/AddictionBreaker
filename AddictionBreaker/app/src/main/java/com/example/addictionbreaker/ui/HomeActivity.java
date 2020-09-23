@@ -1,8 +1,10 @@
-package com.example.addictionbreaker;
+package com.example.addictionbreaker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.addictionbreaker.R;
 
 public class HomeActivity extends AppCompatActivity {
 

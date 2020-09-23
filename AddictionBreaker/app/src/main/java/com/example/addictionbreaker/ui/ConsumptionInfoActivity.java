@@ -1,4 +1,4 @@
-package com.example.addictionbreaker;
+package com.example.addictionbreaker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,16 +7,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.addictionbreaker.R;
+import com.example.addictionbreaker.model.User;
 import com.google.gson.Gson;
 //a comment
 
-public class ConsumptionInfo extends AppCompatActivity {
+public class ConsumptionInfoActivity extends AppCompatActivity {
     private String string1;
     private String string2;
     private TextView consumption_info_how_frequent  ;
@@ -53,7 +54,7 @@ public class ConsumptionInfo extends AppCompatActivity {
                 String newInfo = gson.toJson(user);
                 myPrefs.edit().putString("userInfo", newInfo).commit();
 
-                Intent intent = new Intent(ConsumptionInfo.this, HomeActivity.class);
+                Intent intent = new Intent(ConsumptionInfoActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
         });

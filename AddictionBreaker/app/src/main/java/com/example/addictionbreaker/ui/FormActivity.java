@@ -1,4 +1,4 @@
-package com.example.addictionbreaker;
+package com.example.addictionbreaker.ui;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,16 +7,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.addictionbreaker.R;
+import com.example.addictionbreaker.model.User;
 import com.google.gson.Gson;
 
-public class Form extends AppCompatActivity {
+public class FormActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class Form extends AppCompatActivity {
                     String info = gson.toJson(user);
                     myPrefs.edit().putString("userInfo", info).commit();
 
-                    Intent intent = new Intent(Form.this, ConsumptionInfo.class);
+                    Intent intent = new Intent(FormActivity.this, ConsumptionInfoActivity.class);
                     startActivity(intent);
                 }
         }
