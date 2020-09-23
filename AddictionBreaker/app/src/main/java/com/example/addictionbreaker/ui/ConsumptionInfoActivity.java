@@ -2,6 +2,7 @@ package com.example.addictionbreaker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +10,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,6 +19,8 @@ import com.example.addictionbreaker.R;
 import com.example.addictionbreaker.data.DatabaseHelper;
 import com.example.addictionbreaker.model.User;
 import com.google.gson.Gson;
+
+import java.util.Calendar;
 //a comment
 
 public class ConsumptionInfoActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
@@ -25,6 +29,7 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
     private String string2;
     private TextView consumption_info_how_frequent  ;
     private TextView consumption_info_cost;
+    private TextView startDateText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +37,11 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
         myDb = new DatabaseHelper(this);
         consumption_info_how_frequent = (TextView)findViewById(R.id.consumption_info_how_frequent);
         consumption_info_cost = (TextView)findViewById(R.id.consumption_info_cost);
+        startDateText = findViewById(R.id.start_date);
         final EditText averageConsumption = findViewById(R.id.averageConsumption);
         final EditText averageCost = findViewById(R.id.averageCost);
         Button letsGo = findViewById(R.id.letsGo);
+        Button startDate = findViewById(R.id.start_date_button);
 
         //retrieve user info
         final SharedPreferences myPrefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
@@ -66,6 +73,13 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
             }
         });
 
+        startDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePickerDialog();
+            }
+        });
+
     }
     private void setStrings(User user) {
         if (user.getAddiction().equals("Cigarettes")){
@@ -84,5 +98,20 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
             string1 = "cigarettes";
             string2 = "a pack of cigarettes";
         }
+    }
+
+    private void showDatePickerDialog() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, this,
+                Calendar.getInstance().get(Calendar.YEAR),
+                Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+
+        datePickerDialog.show();
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        String date = "Start Date: " + month + "/" + day + "/" + year;
+        startDateText.setText(date);
     }
 }
