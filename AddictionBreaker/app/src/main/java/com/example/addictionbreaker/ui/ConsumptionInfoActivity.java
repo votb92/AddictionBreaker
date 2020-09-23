@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.addictionbreaker.R;
+import com.example.addictionbreaker.data.DatabaseHelper;
 import com.example.addictionbreaker.model.User;
 import com.google.gson.Gson;
 
@@ -22,6 +24,7 @@ import java.util.Calendar;
 //a comment
 
 public class ConsumptionInfoActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+    DatabaseHelper myDb;
     private String string1;
     private String string2;
     private TextView consumption_info_how_frequent  ;
@@ -31,6 +34,7 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumption_info);
+        myDb = new DatabaseHelper(this);
         consumption_info_how_frequent = (TextView)findViewById(R.id.consumption_info_how_frequent);
         consumption_info_cost = (TextView)findViewById(R.id.consumption_info_cost);
         startDateText = findViewById(R.id.start_date);
@@ -60,7 +64,10 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
                 user.setCostOfAddiction(Integer.parseInt(averageCost.getText().toString()));
                 String newInfo = gson.toJson(user);
                 myPrefs.edit().putString("userInfo", newInfo).commit();
-
+                boolean isInserted = myDb.insertData(user.getName(), Integer.toString(user.getAge()), user.getAddiction(),Integer.toString(user.getConsumption()),Integer.toString(user.getCostOfAddiction()));
+                if(isInserted){
+                    Toast.makeText(ConsumptionInfoActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
+                }
                 Intent intent = new Intent(ConsumptionInfoActivity.this, HomeActivity.class);
                 startActivity(intent);
             }
