@@ -1,5 +1,6 @@
 package com.example.addictionbreaker.ui;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -30,6 +31,7 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
     private TextView consumption_info_how_frequent  ;
     private TextView consumption_info_cost;
     private TextView startDateText;
+    private boolean isBlank = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +42,7 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
         startDateText = findViewById(R.id.start_date);
         final EditText averageConsumption = findViewById(R.id.averageConsumption);
         final EditText averageCost = findViewById(R.id.averageCost);
-        Button letsGo = findViewById(R.id.letsGo);
+        final Button letsGo = findViewById(R.id.letsGo);
         Button startDate = findViewById(R.id.start_date_button);
 
         //retrieve user info
@@ -60,18 +62,25 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
         letsGo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                user.setConsumption(Integer.parseInt(averageConsumption.getText().toString()));
-                user.setCostOfAddiction(Integer.parseInt(averageCost.getText().toString()));
-                String newInfo = gson.toJson(user);
-                myPrefs.edit().putString("userInfo", newInfo).commit();
-                boolean isInserted = myDb.insertData(user.getName(), Integer.toString(user.getAge()), user.getAddiction(),Integer.toString(user.getConsumption()),Integer.toString(user.getCostOfAddiction()));
-                if(isInserted){
-                    Toast.makeText(ConsumptionInfoActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
+                startDateText.getText().toString().isEmpty();
+                if(averageConsumption.getText().toString().isEmpty() || averageCost.getText().toString().isEmpty() || startDateText.getText().toString().isEmpty()){
+                    isBlank = alertMessage(letsGo);
                 }
-                Intent intent = new Intent(ConsumptionInfoActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        });
+                else{
+                    isBlank = false;
+                }
+                if(!isBlank){
+                    String newInfo = gson.toJson(user);
+                    myPrefs.edit().putString("userInfo", newInfo).commit();
+                    boolean isInserted = myDb.insertData(user.getName(), Integer.toString(user.getAge()), user.getAddiction(),Integer.toString(user.getConsumption()),Integer.toString(user.getCostOfAddiction()));
+                    if(isInserted){
+                        Toast.makeText(ConsumptionInfoActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
+                    }
+                        Intent intent = new Intent(ConsumptionInfoActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            });
 
         startDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,5 +122,13 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
         String date = "Start Date: " + month + "/" + day + "/" + year;
         startDateText.setText(date);
+    }
+
+    private boolean alertMessage(Button letsGo){
+        AlertDialog a = new AlertDialog.Builder(letsGo.getContext()).create();
+        a.setTitle("Missing/Blank Fields!");
+        a.setMessage("Make sure you pick a start date and fill in the consumption info");
+        a.show();
+        return true;
     }
 }
