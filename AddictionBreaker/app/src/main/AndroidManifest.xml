@@ -14,7 +14,7 @@
             android:name=".AdictionList"
             android:label="@string/title_activity_adiction_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".ui.HomeActivity">
+        <activity android:name=".ui.HomeActivity" />
         <activity android:name=".ui.ConsumptionInfoActivity" />
         <activity android:name=".ui.FormActivity" />
         <activity android:name=".ui.MainActivity">

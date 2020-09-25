@@ -2,6 +2,8 @@ package com.example.addictionbreaker;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.addictionbreaker.ui.FormActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,7 +32,7 @@ public class AdictionList extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AdictionList.this, Form.class);
+                Intent intent = new Intent(AdictionList.this, FormActivity.class);
                 startActivity(intent);
             }
         });
