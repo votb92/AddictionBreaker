@@ -6,17 +6,23 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
 
 public class AdictionList extends AppCompatActivity {
 
-    String s1[], s2[];
-    int images[] = {R.drawable.add, R.drawable.add2};
+    RecyclerView recyclerView;
+
+    String s1[];
+    int images[] = {R.drawable.add, R.drawable.add2, R.drawable.add3, R.drawable.add4, R.drawable.add5, R.drawable.add6,};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adiction_list);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -29,8 +35,11 @@ public class AdictionList extends AppCompatActivity {
             }
         });
 
+        s1 = getResources().getStringArray(R.array.addictions);
         recyclerView = findViewById(R.id.recyclerView);
 
-        com.jovanovic.stefan.myrecyclerview.MyAdapter MyAdapter = new MyAdapter(ct: this, s1, s2, images);
+        MyAdapter myAdapter = new MyAdapter(this, s1, images);
+        recyclerView.setAdapter(myAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
