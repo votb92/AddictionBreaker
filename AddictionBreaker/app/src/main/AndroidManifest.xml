@@ -14,10 +14,11 @@
             android:name=".AdictionList"
             android:label="@string/title_activity_adiction_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".ConsumptionInfo" />
-        <activity android:name=".Form" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.HomeActivity">
+        <activity android:name=".ui.ConsumptionInfoActivity" />
+        <activity android:name=".ui.FormActivity" />
+        <activity android:name=".ui.MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
