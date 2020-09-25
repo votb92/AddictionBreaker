@@ -2,3 +2,4 @@ thinh b vo
 - funfact
 - Made this github. The real MVP. (John Brilhart)
 - A good teammate to have. (Tommy Luong)
+- inclass commit
