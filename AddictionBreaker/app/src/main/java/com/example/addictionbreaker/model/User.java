@@ -2,7 +2,7 @@ package com.example.addictionbreaker.model;
 
 public class User {
     private String name, addiction;
-    private int age, consumption, costOfAddiction;
+    private int age, consumption, costOfAddiction, day, month, year;
 
     public User(){
 
@@ -60,4 +60,33 @@ public class User {
         this.costOfAddiction = costOfAddiction;
     }
 
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void getTimePassed(){
+
+
+    }
 }
