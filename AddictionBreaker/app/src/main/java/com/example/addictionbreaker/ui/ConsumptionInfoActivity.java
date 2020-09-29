@@ -66,8 +66,10 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
             @Override
             public void onClick(View view) {
                 startDateText.getText().toString().isEmpty();
-                if(averageConsumption.getText().toString().isEmpty() || averageCost.getText().toString().isEmpty() || startDateText.getText().toString().isEmpty()){
-                    isBlank = alertMessage(letsGo);
+                if(averageConsumption.getText().toString().isEmpty() || averageCost.getText().toString().isEmpty()){
+                    isBlank = alertMessage(letsGo, "Make sure you fill in your consumption info");
+                }else if (!startDateText.getText().toString().contains(":") || !startDateText.getText().toString().contains("/") || startDateText.getText().toString().isEmpty()){
+                    isBlank = alertMessage(letsGo, "Make sure you pick a start time and date");
                 }
                 else{
                     isBlank = false;
@@ -130,9 +132,9 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
 
     private void showTimePickerDialog(){
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, 2, this,
-                Calendar.HOUR,
-                Calendar.MINUTE,
-                true);
+                Calendar.getInstance().get(Calendar.HOUR_OF_DAY),
+                Calendar.getInstance().get(Calendar.MINUTE),
+                false);
         timePickerDialog.show();
     }
 
@@ -140,17 +142,21 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
         if(startDateText.getText().toString().isEmpty()) {
-            String date = "Start Date and Time: " + month + "/" + day + "/" + year;
+            String date = "Start Date and Time- " + month + "/" + day + "/" + year;
             startDateText.setText(date);
-        }else{
+        }else if(startDateText.getText().toString().contains("/")){
+            String date = "Start Date and Time- " + month + "/" + day + "/" + year;
+            startDateText.setText(date);
+        }
+        else{
             startDateText.append(" on " + month + "/" + day + "/" + year);
         }
     }
 
-    private boolean alertMessage(Button letsGo){
+    private boolean alertMessage(Button letsGo, String message){
         AlertDialog a = new AlertDialog.Builder(letsGo.getContext()).create();
         a.setTitle("Missing/Blank Fields!");
-        a.setMessage("Make sure you pick a start date and fill in the consumption info");
+        a.setMessage(message);
         a.show();
         return true;
     }
@@ -158,10 +164,30 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
     @Override
     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
         if(startDateText.getText().toString().isEmpty()) {
-            String date = "Start Time & Date: " + hour + ":" + minute;
-            startDateText.setText(date);
-        }else {
-            startDateText.append(" at " + hour + ":" + minute);
+            String time = "Start Time & Date- " + hour + ":" + minute;
+            if(hour >= 0 && hour < 12){
+                time = time + " AM";
+            }else{
+                time = time + " PM";
+            }
+            startDateText.setText(time);
+        }else if(startDateText.getText().toString().contains(":")){
+            String time = "Start Time & Date- " + hour + ":" + minute;
+            if(hour >= 0 && hour < 12){
+                time = time + " AM";
+            }else{
+                time = time + " PM";
+            }
+            startDateText.setText(time);
+        }
+        else {
+            String time = " at "  + hour + ":" + minute;
+            if(hour >= 0 && hour < 12){
+                time = time + " AM";
+            }else{
+                time = time + " PM";
+            }
+            startDateText.append(time);
         }
     }
 }
