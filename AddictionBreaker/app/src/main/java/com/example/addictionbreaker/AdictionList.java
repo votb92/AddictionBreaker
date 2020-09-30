@@ -26,7 +26,7 @@ public class AdictionList extends AppCompatActivity {
         setContentView(R.layout.activity_adiction_list);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        setSupportActionBar(toobar);
 
        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
