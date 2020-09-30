@@ -9,6 +9,6 @@ public class AddAddiction extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_addiction);
+        setContentView(R.layout.a_add_a);
     }
 }
