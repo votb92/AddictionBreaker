@@ -6,16 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeActivity">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="414dp"
-        android:layout_height="56dp"
-        app:backgroundTint="#FBFAFA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="413dp"
+        android:layout_height="64dp"
+        app:backgroundTint="#FBFAFA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/bottom_navigation" />
 
     <TextView
         android:id="@+id/home_numberOfDays"
@@ -67,5 +67,4 @@
         app:layout_constraintTop_toBottomOf="@+id/home_btmText"
         tools:text="PROFILE" />
 
->>>>>>> master
 </androidx.constraintlayout.widget.ConstraintLayout>
