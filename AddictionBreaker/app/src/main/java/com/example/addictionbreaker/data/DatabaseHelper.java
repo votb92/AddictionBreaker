@@ -33,6 +33,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
+
     public boolean insertData(String name, String age, String addiction, String frequency, String cost){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

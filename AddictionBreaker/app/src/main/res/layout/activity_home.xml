@@ -6,4 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeActivity">
 
+    <TextView
+        android:id="@+id/home_numberOfDays"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/home_topText"
+        android:layout_width="104dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="12dp"
+        android:gravity="center"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/home_numberOfDays"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="NO MORE ADDICTION" />
+
+    <TextView
+        android:id="@+id/home_btmText"
+        android:layout_width="69dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_numberOfDays"
+        tools:text="DAYS SO FAR" />
 </androidx.constraintlayout.widget.ConstraintLayout>

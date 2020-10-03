@@ -9,7 +9,7 @@ public class User {
     }
     public User(String name, String addiction, int age, int consumption, int costOfAddiction){
         this.name = name;
-        this. addiction = addiction;
+        this.addiction = addiction;
         this.age = age;
         this.consumption = consumption;
         this.costOfAddiction = costOfAddiction;
