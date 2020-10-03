@@ -11,6 +11,11 @@
         android:icon="@drawable/ic_action_links"
         android:title="@string/links"/>
     <item
+        android:id="@+id/journey"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:title="@string/journey" />
+    <item
         android:id="@+id/settings"
         android:enabled="true"
         android:icon="@drawable/ic_action_settings"
