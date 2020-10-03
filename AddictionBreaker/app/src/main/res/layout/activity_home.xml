@@ -55,4 +55,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_btmText"
         tools:text="PROFILE" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
