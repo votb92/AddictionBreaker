@@ -28,8 +28,8 @@ import java.util.Calendar;
 
 public class ConsumptionInfoActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     DatabaseHelper myDb;
-    private String string1;
-    private String string2;
+    private String drugType;
+    private String drugDescription;
     private TextView consumption_info_how_frequent  ;
     private TextView consumption_info_cost;
     private TextView startDateText;
@@ -56,8 +56,8 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
         setStrings(user);
 
         Resources res = getResources();
-        String how_frequent = String.format(res.getString(R.string.consumption_info_how_frequent), string1);
-        String cost = String.format(res.getString(R.string.consumption_info_cost),string2);
+        String how_frequent = String.format(res.getString(R.string.consumption_info_how_frequent), drugType);
+        String cost = String.format(res.getString(R.string.consumption_info_cost), drugDescription);
         consumption_info_how_frequent.setText(how_frequent);
         consumption_info_cost.setText(cost);
 
@@ -103,21 +103,18 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
 
     }
     private void setStrings(User user) {
-        if (user.getAddiction().equals("Cigarettes")){
-            string1 = "cigarettes";
-            string2 = "a pack of cigarettes";
-        }
-        else if(user.getAddiction().equals("Alcohol")){
-            string1 = "drinks";
-            string2 = "a day of drinking";
-        }
-        else if(user.getAddiction().equals("Vaping/Juuling")){
-            string1 = "pod";
-            string2 = "a pod";
-        }
-        else{
-            string1 = "cigarettes";
-            string2 = "a pack of cigarettes";
+        switch(user.getAddiction()){
+            case "Alcohol":
+                drugType = "drinks";
+                drugDescription = "a day of drinking";
+                break;
+            case "Vaping/Juuling":
+                drugType = "pod";
+                drugDescription = "a pod";
+                break;
+            default :
+                drugType = "cigarettes";
+                drugDescription = "a pack of cigarettes";
         }
     }
 
