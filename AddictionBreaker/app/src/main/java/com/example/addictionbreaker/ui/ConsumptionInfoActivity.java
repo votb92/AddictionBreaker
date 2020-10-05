@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.addictionbreaker.R;
@@ -24,7 +26,7 @@ import com.google.gson.Gson;
 import java.util.Calendar;
 //a comment
 
-public class ConsumptionInfoActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class ConsumptionInfoActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     DatabaseHelper myDb;
     private String string1;
     private String string2;
@@ -44,6 +46,7 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
         final EditText averageCost = findViewById(R.id.averageCost);
         final Button letsGo = findViewById(R.id.letsGo);
         Button startDate = findViewById(R.id.start_date_button);
+        Button startTime = findViewById(R.id.start_time_button);
 
         //retrieve user info
         final SharedPreferences myPrefs = this.getSharedPreferences("com.example.app", Context.MODE_PRIVATE);
@@ -63,8 +66,10 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
             @Override
             public void onClick(View view) {
                 startDateText.getText().toString().isEmpty();
-                if(averageConsumption.getText().toString().isEmpty() || averageCost.getText().toString().isEmpty() || startDateText.getText().toString().isEmpty()){
-                    isBlank = alertMessage(letsGo);
+                if(averageConsumption.getText().toString().isEmpty() || averageCost.getText().toString().isEmpty()){
+                    isBlank = alertMessage(letsGo, "Make sure you fill in your consumption info");
+                }else if (!startDateText.getText().toString().contains(":") || !startDateText.getText().toString().contains("/") || startDateText.getText().toString().isEmpty()){
+                    isBlank = alertMessage(letsGo, "Make sure you pick a start time and date");
                 }
                 else{
                     isBlank = false;
@@ -89,6 +94,13 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
             }
         });
 
+        startTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTimePickerDialog();
+            }
+        });
+
     }
     private void setStrings(User user) {
         if (user.getAddiction().equals("Cigarettes")){
@@ -110,7 +122,7 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
     }
 
     private void showDatePickerDialog() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, this,
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,this,
                 Calendar.getInstance().get(Calendar.YEAR),
                 Calendar.getInstance().get(Calendar.MONTH),
                 Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
@@ -118,17 +130,64 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
         datePickerDialog.show();
     }
 
-    @Override
-    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-        String date = "Start Date: " + month + "/" + day + "/" + year;
-        startDateText.setText(date);
+    private void showTimePickerDialog(){
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, 2, this,
+                Calendar.getInstance().get(Calendar.HOUR_OF_DAY),
+                Calendar.getInstance().get(Calendar.MINUTE),
+                false);
+        timePickerDialog.show();
     }
 
-    private boolean alertMessage(Button letsGo){
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        if(startDateText.getText().toString().isEmpty()) {
+            String date = "Start Date and Time- " + month + "/" + day + "/" + year;
+            startDateText.setText(date);
+        }else if(startDateText.getText().toString().contains("/")){
+            String date = "Start Date and Time- " + month + "/" + day + "/" + year;
+            startDateText.setText(date);
+        }
+        else{
+            startDateText.append(" on " + month + "/" + day + "/" + year);
+        }
+    }
+
+    private boolean alertMessage(Button letsGo, String message){
         AlertDialog a = new AlertDialog.Builder(letsGo.getContext()).create();
         a.setTitle("Missing/Blank Fields!");
-        a.setMessage("Make sure you pick a start date and fill in the consumption info");
+        a.setMessage(message);
         a.show();
         return true;
+    }
+
+    @Override
+    public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+        if(startDateText.getText().toString().isEmpty()) {
+            String time = "Start Time & Date- " + hour + ":" + minute;
+            if(hour >= 0 && hour < 12){
+                time = time + " AM";
+            }else{
+                time = time + " PM";
+            }
+            startDateText.setText(time);
+        }else if(startDateText.getText().toString().contains(":")){
+            String time = "Start Time & Date- " + hour + ":" + minute;
+            if(hour >= 0 && hour < 12){
+                time = time + " AM";
+            }else{
+                time = time + " PM";
+            }
+            startDateText.setText(time);
+        }
+        else {
+            String time = " at "  + hour + ":" + minute;
+            if(hour >= 0 && hour < 12){
+                time = time + " AM";
+            }else{
+                time = time + " PM";
+            }
+            startDateText.append(time);
+        }
     }
 }
