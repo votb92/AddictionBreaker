@@ -38,7 +38,7 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consumption_info);
-        myDb = new DatabaseHelper(this);
+        myDb = new DatabaseHelper(getApplicationContext());
         consumption_info_how_frequent = (TextView)findViewById(R.id.consumption_info_how_frequent);
         consumption_info_cost = (TextView)findViewById(R.id.consumption_info_cost);
         startDateText = findViewById(R.id.start_date);

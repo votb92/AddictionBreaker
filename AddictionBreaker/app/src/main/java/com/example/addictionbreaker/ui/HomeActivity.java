@@ -1,15 +1,20 @@
 package com.example.addictionbreaker.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.addictionbreaker.R;
 import com.example.addictionbreaker.data.DatabaseHelper;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
     DatabaseHelper myDb;
@@ -18,40 +23,40 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        final FragmentManager fragmentManager = getSupportFragmentManager();
+        final Fragment homeFragment = new HomeFragment();
+        final Fragment linksFragment = new LinksFragment();
+        final Fragment settingsFragment = new SettingsFragment();
+        final Fragment journeyFragment = new JourneyFragment();
+        fragmentManager.beginTransaction().replace(R.id.fragment_container,homeFragment).commit();
 
-        myDb = new DatabaseHelper(this);
-        yourProfileButton = (Button)findViewById(R.id.yourProfileButton);
-        viewAll();
-    }
+        BottomNavigationView bottomNavigationView = findViewById(R.id.navigation_bar);
 
-    public void viewAll(){
-        yourProfileButton.setOnClickListener(
-            new View.OnClickListener(){
-                public void onClick(View v){
-                    Cursor res = myDb.getAllData();
-                    if(res.getCount() == 0){
-                        showMessage("Error", "Nothing was found");
-                        return;
-                    }
-                    StringBuffer information = new StringBuffer();
-                    while (res.moveToNext()){
-                        information.append("ID: " + res.getString(0) +"\n");
-                        information.append("NAME: " + res.getString(1) +"\n");
-                        information.append("AGE: " + res.getString(2) +"\n");
-                        information.append("ADDICTION: " + res.getString(3) +"\n");
-                        information.append("FREQUENCY: " + res.getString(4) +"\n");
-                        information.append("COST: " + res.getString(5) +"\n");
-                    }
-                    showMessage("Data", information.toString());
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment;
+                switch(item.getItemId()){
+                    case R.id.home:
+                    default:
+                        fragment = homeFragment;
+                        break;
+                    case R.id.links:
+                        fragment = linksFragment;
+                        break;
+                    case R.id.settings:
+                        fragment = settingsFragment;
+                        break;
+                    case R.id.journey:
+                        fragment = journeyFragment;
+                        break;
                 }
+                fragmentManager.beginTransaction().replace(R.id.fragment_container,fragment).commit();
+                return true;
             }
-        );
-    }
-    public void showMessage(String Title, String Message){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(Title);
-        builder.setMessage(Message);
-        builder.show();
+        });
+
+
+
     }
 }

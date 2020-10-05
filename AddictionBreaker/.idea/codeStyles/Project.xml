@@ -8,7 +8,7 @@
           <package name="io.ktor" withSubpackages="true" static="false" />
         </value>
       </option>
-      <option name="PACKAGES_IMPORT_LAYOUT">
+     <option name="PACKAGES_IMPORT_LAYOUT">
         <value>
           <package name="" alias="false" withSubpackages="true" />
           <package name="java" alias="false" withSubpackages="true" />
