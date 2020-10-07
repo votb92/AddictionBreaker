@@ -81,7 +81,11 @@ public class HomeFragment extends Fragment {
         yourProfileButton = view.findViewById(R.id.yourProfileButton);
         viewAll();
     }
-
+    /**
+     * Demonstration of how to pull data from storage
+     *
+     * @return all the information that we store!
+     */
     public void viewAll(){
         yourProfileButton.setOnClickListener(
                 new View.OnClickListener(){
@@ -99,6 +103,7 @@ public class HomeFragment extends Fragment {
                             information.append("ADDICTION: " + res.getString(3) +"\n");
                             information.append("FREQUENCY: " + res.getString(4) +"\n");
                             information.append("COST: " + res.getString(5) +"\n");
+                            information.append("DAYS WITHOUT USING: " + res.getString(6) +"\n");
                         }
                         showMessage("Data", information.toString());
                     }
