@@ -17,6 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_4 = "ADDICTION";
     public static final String COL_5 = "FREQUENCY";
     public static final String COL_6 = "COST";
+    public static final String COL_7 = "DAYS";
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -25,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table "+ TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, AGE INTEGER, ADDICTION TEXT, FREQUENCY DECIMAL, COST DECIMAL)");
+        db.execSQL("create table "+ TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, AGE INTEGER, ADDICTION TEXT, FREQUENCY DECIMAL, COST DECIMAL, DAYS INTEGER)");
     }
 
     @Override
@@ -34,9 +35,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-
+    public boolean updateDay(int days){
+        String numberOfDay = Integer.toString(days);
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_7, numberOfDay);
+        db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{"1"});
+        return true;
+    }
 
     public boolean insertData(String name, String age, String addiction, String frequency, String cost){
+        String firstDay = "0";
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
@@ -44,6 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_4, addiction);
         contentValues.put(COL_5, frequency);
         contentValues.put(COL_6, cost);
+        contentValues.put(COL_7, firstDay);
         long result = db.insert(TABLE_NAME, null, contentValues);
         if (result == -1){
             return false;
