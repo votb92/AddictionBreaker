@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -139,14 +140,14 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
         if(startDateText.getText().toString().isEmpty()) {
-            String date = "Start Date and Time- " + month + "/" + day + "/" + year;
+            String date = "Start Date and Time- " + (month + 1) + "/" + day + "/" + year;
             startDateText.setText(date);
         }else if(startDateText.getText().toString().contains("/")){
-            String date = "Start Date and Time- " + month + "/" + day + "/" + year;
+            String date = "Start Date and Time- " + (month + 1) + "/" + day + "/" + year;
             startDateText.setText(date);
         }
         else{
-            startDateText.append(" on " + month + "/" + day + "/" + year);
+            startDateText.append(" on " + (month + 1) + "/" + day + "/" + year);
         }
     }
 
