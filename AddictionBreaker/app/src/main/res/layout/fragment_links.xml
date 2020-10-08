@@ -5,7 +5,8 @@
     android:id="@+id/links_title"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LinksFragment">
+    tools:context=".ui.LinksFragment"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/textView8"
