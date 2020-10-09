@@ -96,6 +96,9 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="profile">PROFILE</string>
+    <string name="reset">Reset Progress</string>
+    <string name="new_start_date">Please Enter Your New Start Date and Time</string>
+    <string name="reset_title">Let\'s Get Back On Track</string>
 
 
 </resources>

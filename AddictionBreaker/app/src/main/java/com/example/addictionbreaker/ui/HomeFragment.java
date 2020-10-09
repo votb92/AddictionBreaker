@@ -1,5 +1,6 @@
 package com.example.addictionbreaker.ui;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
@@ -28,8 +29,10 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    DatabaseHelper myDb;
-    Button yourProfileButton;
+    private DatabaseHelper myDb;
+    private Button yourProfileButton;
+    private Button resetButton;
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -80,6 +83,17 @@ public class HomeFragment extends Fragment {
         myDb = new DatabaseHelper(getContext());
         yourProfileButton = view.findViewById(R.id.yourProfileButton);
         viewAll();
+
+        resetButton = view.findViewById(R.id.reset_button);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ResetProgressActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
     /**
      * Demonstration of how to pull data from storage
