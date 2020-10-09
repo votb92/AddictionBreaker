@@ -32,8 +32,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_btmText"
-        tools:text="PROFILE" />
+        app:layout_constraintTop_toBottomOf="@+id/home_btmText" />
 
     <TextView
         android:id="@+id/home_btmText3"
@@ -63,4 +62,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.562"
         tools:text="0" />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reset"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yourProfileButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
