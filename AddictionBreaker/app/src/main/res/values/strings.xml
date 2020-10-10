@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--
     BIG COMMENT GENERATOR:
 
@@ -96,6 +96,12 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="profile">PROFILE</string>
+    <string name="links_for_alcohol_addiction">Links for Alcohol addiction</string>
+    <string name="hotline_numbers_for_addictions_etc">Hotline Numbers for Addictions/ Etc.</string>
+    <string name="suicide_prevention">Suicide Prevention</string>
+    <string name="_1_800_273_8255" tools:ignore="TypographyDashes">1–800–273-8255</string>
+    <string name="alcohol_and_drug_abuse">Alcohol and Drug Abuse</string>
+    <string name="overcoming_alcohol_addiction">Overcoming Alcohol Addiction</string>
 
 
 </resources>

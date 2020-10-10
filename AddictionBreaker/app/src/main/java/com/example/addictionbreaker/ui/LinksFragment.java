@@ -1,5 +1,7 @@
 package com.example.addictionbreaker.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +11,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.widget.TextView;
 
 import com.example.addictionbreaker.R;
 
@@ -53,17 +57,25 @@ public class LinksFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_links, container, false);
+        TextView textView = view.findViewById(R.id.motivation);
+        textView.setOnClickListener(view1 -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.helpguide.org/articles/addictions/overcoming-alcohol-addiction.htm"));
+            startActivity(browserIntent);
+        });
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_links, container, false);
+        return view;
     }
 
     @Override

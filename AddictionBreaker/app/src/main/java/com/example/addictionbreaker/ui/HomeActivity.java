@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Button;
 
 import com.example.addictionbreaker.R;
@@ -31,7 +30,6 @@ public class HomeActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.fragment_container,homeFragment).commit();
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.navigation_bar);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
