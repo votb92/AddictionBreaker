@@ -171,4 +171,4 @@ fi
 
 exec "$JAVACMD" "$@"
 
-<<Midterm Commit 2>>
+
