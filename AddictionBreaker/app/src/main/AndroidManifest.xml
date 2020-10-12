@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ui.ResetProgressActivity"></activity>
         <activity android:name=".AddAddiction" />
         <activity
             android:name=".AdictionList"
