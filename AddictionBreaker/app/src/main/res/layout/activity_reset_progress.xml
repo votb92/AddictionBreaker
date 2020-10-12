@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ResetProgressActivity"
-    android:background="@drawable/background">
+    tools:context=".ui.ResetProgressActivity">
 
     <Button
         android:id="@+id/reset_date_button"
