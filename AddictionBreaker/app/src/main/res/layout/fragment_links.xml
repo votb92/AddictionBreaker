@@ -2,25 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/links_title"
+    android:id="@+id/Vape_Effects"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.LinksFragment"
     android:background="@drawable/background">
-
-    <TextView
-        android:id="@+id/motivation"
-        android:layout_width="174dp"
-        android:layout_height="16dp"
-        android:text="@string/overcoming_alcohol_addiction"
-        android:textColor="#2196F3"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.139" />
 
     <TextView
         android:id="@+id/textView8"
@@ -36,71 +22,293 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView15"
-        android:layout_width="182dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="132dp"
-        android:text="@string/links_for_alcohol_addiction"
+        android:id="@+id/textView7"
+        android:layout_width="201dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="150dp"
+        android:text="Links For Alcohol Addiction"
+        android:textColor="#FF0000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="288dp"
-        android:text="@string/links"
+        android:id="@+id/Overcoming_Motivation"
+        android:layout_width="323dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="72dp"
+        android:text="@string/overcoming_alcohol_addiction_article"
+        android:textColor="#040404"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/Stopping_motivations"
+        android:layout_width="326dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="68dp"
+        android:text="@string/what_happens_when_you_stop_article"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Overcoming_Motivation" />
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="279dp"
-        android:layout_height="17dp"
-        android:layout_marginTop="404dp"
-        android:layout_marginEnd="116dp"
-        android:text="@string/hotline_numbers_for_addictions_etc"
-        android:textStyle="bold"
+        android:layout_width="212dp"
+        android:layout_height="21dp"
+        android:layout_marginEnd="157dp"
+        android:text="@string/motivations_for_quitting"
+        android:textColor="#E91E63"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/motivation" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="280dp"
-        android:text="@string/suicide_prevention"
-        android:textColor="#000000"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="177dp"
-        android:layout_height="16dp"
-        android:layout_marginEnd="216dp"
-        android:layout_marginBottom="4dp"
-        android:text="@string/_1_800_273_8255"
-        android:textColor="#2196F3"
-        app:layout_constraintBottom_toTopOf="@+id/textView20"
+        android:layout_width="218dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="151dp"
+        android:text="@string/effects_on_the_body"
+        android:textColor="#FF0057"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/Stopping_motivations" />
 
     <TextView
-        android:id="@+id/textView20"
-        android:layout_width="174dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="220dp"
-        android:text="@string/alcohol_and_drug_abuse"
+        android:id="@+id/Alcohol_Effects"
+        android:layout_width="335dp"
+        android:layout_height="18dp"
+        android:layout_marginEnd="60dp"
+        android:text="@string/alcohol_effects_on_the_body_article"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+    <TextView
+        android:id="@+id/Alcohol_Impact"
+        android:layout_width="339dp"
+        android:layout_height="19dp"
+        android:layout_marginEnd="54dp"
+        android:text="@string/alcohol_impact_article"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Alcohol_Effects" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="237dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="132dp"
+        android:text="@string/links_for_cigarette_vaping_addictions"
+        android:textColor="#FF0057"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Alcohol_Impact" />
+
+    <TextView
+        android:id="@+id/Alcohol_Impact_Brain"
+        android:layout_width="307dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="88dp"
+        android:text="@string/impact_of_alcohol_on_developing_brains_video"
+        android:textColor="#050505"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Alcohol_Impact" />
+
+    <TextView
+        android:id="@+id/Quit_Smoking"
+        android:layout_width="236dp"
+        android:layout_height="21dp"
+        android:layout_marginEnd="156dp"
+        android:text="@string/reason_to_quit_smoking_article"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="211dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="160dp"
+        android:text="@string/hotline_numbers_for_addictions"
+        android:textColor="#FF0057"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Quit_Smoking" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="136dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="256dp"
+        android:text="Suicide Prevention"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="115dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="276dp"
+        android:text="1-800-273-8255"
+        android:textColor="#FF0057"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="176dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="216dp"
+        android:text="Alcohol and Drug Abuse"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="189dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="204dp"
+        android:text="1-800-729-6686"
+        android:textColor="#FF0057"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="212dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="180dp"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/alcohol_addiction_hotline"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="288dp"
+        android:text="@string/_1_844_289_0879"
+        android:textColor="#FF0057"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="220dp"
+        android:text="@string/quit_smoking_help_hotline"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="288dp"
+        android:text="@string/_1_800_784_8669"
+        android:textColor="#FF0057"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+
+    <TextView
+        android:id="@+id/Vape_Effect"
+        android:layout_width="249dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="144dp"
+        android:text="@string/vaping_effects_on_the_body_article"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Quit_Smoking" />
+
+    <TextView
+        android:id="@+id/Smoking_Effects"
+        android:layout_width="265dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="128dp"
+        android:text="@string/smoking_effects_on_the_body_article"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Vape_Effect" />
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="199dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="168dp"
+        android:text="@string/links_for_smoking_vs_vaping"
+        android:textColor="#FF0057"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Smoking_Effects" />
+
+    <TextView
+        android:id="@+id/Impact_Of_Smoking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="220dp"
+        android:text="@string/impact_of_smoking_video"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Smoking_Effects" />
+
+    <TextView
+        android:id="@+id/Smoke_Safety"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="120dp"
+        android:text="@string/which_is_safer_smoking_or_vaping_article"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
