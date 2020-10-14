@@ -66,17 +66,78 @@ public class LinksFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_links, container, false);
-        TextView textView = view.findViewById(R.id.motivation);
-        textView.setOnClickListener(view1 -> {
-            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.helpguide.org/articles/addictions/overcoming-alcohol-addiction.htm"));
-            startActivity(browserIntent);
+        TextView textMotivation = view.findViewById(R.id.Overcoming_Motivation);
+        TextView textMotivations = view.findViewById(R.id.Stopping_motivations);
+        TextView textAlcoholEffects = view.findViewById(R.id.Alcohol_Effects);
+        TextView textAlcoholImpact = view.findViewById(R.id.Alcohol_Impact);
+        TextView textAlcoholImpactBrain = view.findViewById(R.id.Alcohol_Impact_Brain);
+        TextView textQuitSmoking = view.findViewById(R.id.Quit_Smoking);
+        TextView textVapeEffect = view.findViewById(R.id.Vape_Effect);
+        TextView textSmokeEffect = view.findViewById(R.id.Smoking_Effects);
+        TextView textImpactSmoke = view.findViewById(R.id.Impact_Of_Smoking);
+        TextView textSmokeSafety = view.findViewById(R.id.Smoke_Safety);
+
+
+        textMotivation.setOnClickListener(listener -> {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.helpguide.org/articles/addictions/overcoming-alcohol-addiction.htm"));
+                LinksFragment.this.startActivity(browserIntent);
         });
-        // Inflate the layout for this fragment
+        textMotivations.setOnClickListener(listener -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ashevillerecoverycenter.com/how-your-body-changes-when-you-stop-drinking-alcohol/"));
+                    LinksFragment.this.startActivity(browserIntent);
+                }
+        );
+        textAlcoholEffects.setOnClickListener(listener -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.niaaa.nih.gov/alcohols-effects-health/alcohols-effects-body"));
+                    LinksFragment.this.startActivity(browserIntent);
+                }
+        );
+        textAlcoholImpact.setOnClickListener(listener -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.recovery.org/alcohol-addiction/effects-body/"));
+                    LinksFragment.this.startActivity(browserIntent);
+                }
+        );
+        textAlcoholImpactBrain.setOnClickListener(listener -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=7x6HUNTnXUw"));
+                    LinksFragment.this.startActivity(browserIntent);
+                }
+        );
+        textQuitSmoking.setOnClickListener(listener -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://smokefree.gov/quit-smoking/why-you-should-quit/reasons-to-quit"));
+                    LinksFragment.this.startActivity(browserIntent);
+                }
+        );
+        textVapeEffect.setOnClickListener(listener -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.thelist.com/170132/what-vaping-really-does-to-your-body/"));
+                    LinksFragment.this.startActivity(browserIntent);
+                }
+        );
+        textSmokeEffect.setOnClickListener(listener -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.healthline.com/health/smoking/effects-on-body"));
+                    LinksFragment.this.startActivity(browserIntent);
+                }
+        );
+        textSmokeEffect.setOnClickListener(listener -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.healthline.com/health/smoking/effects-on-body"));
+                    LinksFragment.this.startActivity(browserIntent);
+                }
+        );
+        textImpactSmoke.setOnClickListener(listener -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=Y18Vz51Nkos"));
+                    LinksFragment.this.startActivity(browserIntent);
+                }
+        );
+        textSmokeSafety.setOnClickListener(listener -> {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.medicalnewstoday.com/articles/vaping-vs-smoking#which-is-safer"));
+                    LinksFragment.this.startActivity(browserIntent);
+                }
+        );
         return view;
+
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

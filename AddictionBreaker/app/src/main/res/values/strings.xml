@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--
     BIG COMMENT GENERATOR:
 
@@ -96,6 +96,37 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="profile">PROFILE</string>
+    <string name="overcoming_alcohol_addiction">overcoming_alcohol_addiction</string>
+    <string name="Overcoming_alcohol_addiction" />
+    <string name="links_for_alcohol_addiction" />
+    <string name="hotline_numbers_for_addictions_etc" />
+    <string name="suicide_prevention" />
+    <string name="_1_800_273_8255" />
+    <string name="alcohol_and_drug_abuse" />
+    <string name="new_start_date" />
+    <string name="reset_title" />
+    <string name="reset" />
+    <string name="overcoming_alcohol_addiction_article">Overcoming Alcohol Addiction (Article)</string>
+    <string name="what_happens_when_you_stop_article">What Happens When You Stop (Article)</string>
+    <string name="motivations_for_quitting">Motivations for Quitting</string>
+    <string name="effects_on_the_body">Effects On The Body</string>
+    <string name="alcohol_effects_1">Alcohol Effects 1</string>
+    <string name="alcohol_effects_2">Alcohol Effects 2</string>
+    <string name="links_for_cigarette_vaping_addictions">Links for Cigarette/Vaping Addictions</string>
+    <string name="impact_of_alcohol_on_developing_brains_video">Impact of Alcohol on Developing Brains (Video)</string>
+    <string name="reason_to_quit_smoking_article">Reason To Quit Smoking (Article)</string>
+    <string name="hotline_numbers_for_addictions">Hotline Numbers For Addictions</string>
+    <string name="alcohol_addiction_hotline">Alcohol Addiction Hotline</string>
+    <string name="_1_844_289_0879" tools:ignore="TypographyDashes">1–844-289-0879</string>
+    <string name="quit_smoking_help_hotline">Quit Smoking Help Hotline</string>
+    <string name="_1_800_784_8669" tools:ignore="TypographyDashes">1-800-784-8669</string>
+    <string name="alcohol_effects_on_the_body_article">Alcohol Effects on the body (Article)</string>
+    <string name="alcohol_impact_article">Alcohol Impact (Article)</string>
+    <string name="smoking_effects_on_the_body_article">Smoking Effects On The Body (Article)</string>
+    <string name="vaping_effects_on_the_body_article">Vaping Effects On The Body (Article)</string>
+    <string name="links_for_smoking_vs_vaping">Links For Smoking vs. Vaping</string>
+    <string name="impact_of_smoking_video">Impact Of Smoking (Video)</string>
+    <string name="which_is_safer_smoking_or_vaping_article">Which Is Safer Smoking or Vaping (Article)</string>
 
 
 </resources>
