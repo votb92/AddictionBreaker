@@ -103,9 +103,9 @@
     <string name="suicide_prevention" />
     <string name="_1_800_273_8255" />
     <string name="alcohol_and_drug_abuse" />
-    <string name="new_start_date" />
-    <string name="reset_title" />
-    <string name="reset" />
+    <string name="new_start_date">Select your new Start Date and Time</string>
+    <string name="reset_title">Let\'s Get Back on Track</string>
+    <string name="reset">Reset Progress</string>
     <string name="overcoming_alcohol_addiction_article">Overcoming Alcohol Addiction (Article)</string>
     <string name="what_happens_when_you_stop_article">What Happens When You Stop (Article)</string>
     <string name="motivations_for_quitting">Motivations for Quitting</string>
