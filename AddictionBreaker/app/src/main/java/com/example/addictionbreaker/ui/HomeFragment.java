@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.addictionbreaker.R;
 import com.example.addictionbreaker.data.DatabaseHelper;
@@ -83,7 +84,7 @@ public class HomeFragment extends Fragment {
         myDb = new DatabaseHelper(getContext());
         yourProfileButton = view.findViewById(R.id.yourProfileButton);
         viewAll();
-
+//        home_numberOfDays.setText("0");
         resetButton = view.findViewById(R.id.reset_button);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +93,6 @@ public class HomeFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
 
     }
     /**
