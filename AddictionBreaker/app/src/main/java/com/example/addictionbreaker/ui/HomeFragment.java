@@ -101,7 +101,6 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
     }
     /**
      * Demonstration of how to pull data from storage
