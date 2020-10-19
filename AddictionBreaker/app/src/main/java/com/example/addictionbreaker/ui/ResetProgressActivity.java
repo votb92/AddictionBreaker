@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,7 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
         Button resetDate = findViewById(R.id.reset_date_button);
         Button resetTime = findViewById(R.id.reset_time_button);
         resetInfo = findViewById(R.id.reset_info_text);
+        Button resetProgress = findViewById(R.id.reset_progress_button);
 
         resetDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +43,16 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
                 showTimePickerDialog();
             }
         });
+
+        resetProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ResetProgressActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     private void showDatePickerDialog() {
