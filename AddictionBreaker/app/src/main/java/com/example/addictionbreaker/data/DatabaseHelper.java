@@ -19,7 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_6 = "COST";
     public static final String COL_7 = "DAY";
     public static final String[] COL_8 = {"HOUR", "MINUTE"};
-    public static final String[] COL_9 = {"DAY", "MONTH", "YEAR"};
+    public static final String[] COL_9 = {"DAY", "MONTH", "YEAR"};  
 
 
     public DatabaseHelper(@Nullable Context context) {

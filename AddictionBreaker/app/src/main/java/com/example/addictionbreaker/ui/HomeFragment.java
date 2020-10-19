@@ -86,10 +86,7 @@ public class HomeFragment extends Fragment {
         myDb = new DatabaseHelper(getContext());
         yourProfileButton = view.findViewById(R.id.yourProfileButton);
         viewAll();
-        Cursor res = myDb.getAllData();
-        while(res.moveToNext()) {
-            numbersOfDays = res.getString(6);
-        }
+        gettingNumberOfDays();
         home_numberOfDays = view.findViewById(R.id.home_numberOfDays);
         home_numberOfDays.setText(numbersOfDays);
         resetButton = view.findViewById(R.id.reset_button);
@@ -98,10 +95,20 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ResetProgressActivity.class);
                 startActivity(intent);
+                myDb.updateDay(0);
             }
         });
 
     }
+
+    private int gettingNumberOfDays() {
+        Cursor res = myDb.getAllData();
+        while(res.moveToNext()) {
+            numbersOfDays = res.getString(6);
+        }
+        return Integer.parseInt(numbersOfDays);
+    }
+
     /**
      * Demonstration of how to pull data from storage
      *
@@ -138,5 +145,10 @@ public class HomeFragment extends Fragment {
         builder.setTitle(Title);
         builder.setMessage(Message);
         builder.show();
+    }
+
+    public boolean addOneDay(){
+        int newNumberOfDays = gettingNumberOfDays() + 1;
+        return myDb.updateDay(newNumberOfDays);
     }
 }
