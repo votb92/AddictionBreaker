@@ -33,6 +33,8 @@ public class HomeFragment extends Fragment {
     private DatabaseHelper myDb;
     private Button yourProfileButton;
     private Button resetButton;
+    private TextView home_numberOfDays;
+    private String numbersOfDays;
 
 
     // TODO: Rename and change types of parameters
@@ -84,7 +86,12 @@ public class HomeFragment extends Fragment {
         myDb = new DatabaseHelper(getContext());
         yourProfileButton = view.findViewById(R.id.yourProfileButton);
         viewAll();
-//        home_numberOfDays.setText("0");
+        Cursor res = myDb.getAllData();
+        while(res.moveToNext()) {
+            numbersOfDays = res.getString(6);
+        }
+        home_numberOfDays = view.findViewById(R.id.home_numberOfDays);
+        home_numberOfDays.setText(numbersOfDays);
         resetButton = view.findViewById(R.id.reset_button);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override

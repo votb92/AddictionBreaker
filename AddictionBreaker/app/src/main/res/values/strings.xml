@@ -127,6 +127,8 @@
     <string name="links_for_smoking_vs_vaping">Links For Smoking vs. Vaping</string>
     <string name="impact_of_smoking_video">Impact Of Smoking (Video)</string>
     <string name="which_is_safer_smoking_or_vaping_article">Which Is Safer Smoking or Vaping (Article)</string>
-
+    <string name="notification_prompt">Setup Notifications</string>
+    <string name="notifications">Notifications</string>
+    <string name="pick_time_for_notifications">Pick the time you want to receive notifications</string>
 
 </resources>
