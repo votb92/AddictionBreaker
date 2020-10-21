@@ -146,9 +146,15 @@ public class HomeFragment extends Fragment {
         builder.setMessage(Message);
         builder.show();
     }
-
+    /* Adding one day to the current day
+    * */
     public boolean addOneDay(){
         int newNumberOfDays = gettingNumberOfDays() + 1;
+        return myDb.updateDay(newNumberOfDays);
+    }
+    /* set the day to an new number
+     * */
+    public boolean setDay(int newNumberOfDays){
         return myDb.updateDay(newNumberOfDays);
     }
 }
