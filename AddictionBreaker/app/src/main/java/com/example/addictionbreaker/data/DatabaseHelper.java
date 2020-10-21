@@ -40,8 +40,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean updateDay(int days){
-        String numberOfDay = Integer.toString(days);
+    public boolean updateDay(long days){
+        String numberOfDay = Long.toString(days);
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_7, numberOfDay);
