@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,9 @@ import android.widget.TextView;
 
 import com.example.addictionbreaker.R;
 import com.example.addictionbreaker.data.DatabaseHelper;
+
+import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +39,7 @@ public class HomeFragment extends Fragment {
     private Button resetButton;
     private TextView home_numberOfDays;
     private String numbersOfDays;
+    ArrayList<Integer> startDate = new ArrayList<>();
 
 
     // TODO: Rename and change types of parameters
@@ -84,9 +89,27 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         myDb = new DatabaseHelper(getContext());
+        getStartDate();
+
+        Log.i("year", String.valueOf(startDate.get(0)));
         yourProfileButton = view.findViewById(R.id.yourProfileButton);
         viewAll();
         gettingNumberOfDays();
+
+        Calendar startingDate = Calendar.getInstance();
+        Calendar currentDate = Calendar.getInstance();
+        startingDate.set(startDate.get(0), startDate.get(1), startDate.get(2), startDate.get(3), startDate.get(4));
+        currentDate.set(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH),
+                Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE));
+
+        long startingInMillis = startingDate.getTimeInMillis();
+        long currentInMillis = currentDate.getTimeInMillis();
+
+        long difference = currentInMillis - startingInMillis;
+        long numDays = difference / (24 * 60 * 60 * 1000);
+        numbersOfDays = String.valueOf(numDays);
+        setDay(numDays);
+
         home_numberOfDays = view.findViewById(R.id.home_numberOfDays);
         home_numberOfDays.setText(numbersOfDays);
         resetButton = view.findViewById(R.id.reset_button);
@@ -107,6 +130,17 @@ public class HomeFragment extends Fragment {
             numbersOfDays = res.getString(6);
         }
         return Integer.parseInt(numbersOfDays);
+    }
+
+    private void getStartDate(){
+        Cursor res = myDb.getAllData();
+        while(res.moveToNext()){
+            startDate.add(res.getInt(7));
+            startDate.add(res.getInt(8));
+            startDate.add(res.getInt(9));
+            startDate.add(res.getInt(10));
+            startDate.add(res.getInt(11));
+        }
     }
 
     /**
@@ -155,7 +189,7 @@ public class HomeFragment extends Fragment {
     }
     /* set the day to an new number
      * */
-    public boolean setDay(int newNumberOfDays){
+    public boolean setDay(long newNumberOfDays){
         return myDb.updateDay(newNumberOfDays);
     }
 }
