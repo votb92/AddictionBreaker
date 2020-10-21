@@ -132,6 +132,7 @@ public class HomeFragment extends Fragment {
                             information.append("FREQUENCY: " + res.getString(4) +"\n");
                             information.append("COST: " + res.getString(5) +"\n");
                             information.append("DAYS WITHOUT USING: " + res.getString(6) +"\n");
+                            information.append("STARTING POINT, YEAR: " + res.getString(8)+ "\n");
                         }
                         showMessage("Data", information.toString());
                     }
