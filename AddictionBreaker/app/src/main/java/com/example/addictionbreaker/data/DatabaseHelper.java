@@ -18,9 +18,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_5 = "FREQUENCY";
     public static final String COL_6 = "COST";
     public static final String COL_7 = "DAY";
-    public static final String[] COL_8 = {"HOUR", "MINUTE"};
-    public static final String[] COL_9 = {"DAY", "MONTH", "YEAR"};  
-
+    public static final String COL_8 = "STARTYEAR";
+    public static final String COL_9 = "STARTMONTH";
+    public static final String COL_10 = "STARTDAY";
+    public static final String COL_11 = "STARTHOUR";
+    public static final String COL_12 = "STARTMINUTE";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -28,7 +30,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table "+ TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, AGE INTEGER, ADDICTION TEXT, FREQUENCY DECIMAL, COST DECIMAL, DAY INTEGER)");
+        db.execSQL("create table "+ TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, " +
+                "AGE INTEGER, ADDICTION TEXT, FREQUENCY DECIMAL, COST DECIMAL, DAY INTEGER, STARTYEAR INTEGER, STARTMONTH INTEGER,STARTDAY INTEGER,STARTHOUR INTEGER,STARTMINUTE INTEGER)");
     }
 
     @Override
@@ -46,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean insertData(String name, String age, String addiction, String frequency, String cost){
+    public boolean insertData(String name, String age, String addiction, String frequency, String cost, String startYear, String startMonth, String startDay, String startHour, String startMinute){
         String firstDay = "0";
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -56,6 +59,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL_5, frequency);
         contentValues.put(COL_6, cost);
         contentValues.put(COL_7, firstDay);
+        contentValues.put(COL_8, startYear);
+        contentValues.put(COL_9, startMonth);
+        contentValues.put(COL_10, startDay);
+        contentValues.put(COL_11, startHour);
+        contentValues.put(COL_12, startMinute);
         long result = db.insert(TABLE_NAME, null, contentValues);
         if (result == -1){
             return false;

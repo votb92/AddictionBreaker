@@ -35,6 +35,11 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
     private TextView consumption_info_cost;
     private TextView startDateText;
     private boolean isBlank = false;
+    private int year;
+    private int month;
+    private int day;
+    private int hour;
+    private int minute;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +83,8 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
                 if(!isBlank){
                     String newInfo = gson.toJson(user);
                     myPrefs.edit().putString("userInfo", newInfo).commit();
-                    boolean isInserted = myDb.insertData(user.getName(), Integer.toString(user.getAge()), user.getAddiction(),Integer.toString(user.getConsumption()),Integer.toString(user.getCostOfAddiction()));
+                    boolean isInserted = myDb.insertData(user.getName(), Integer.toString(user.getAge()), user.getAddiction(),Integer.toString(user.getConsumption()),Integer.toString(user.getCostOfAddiction()),
+                            Integer.toString(year),Integer.toString(month),Integer.toString(day),Integer.toString(hour),Integer.toString(minute) );
                     if(isInserted){
                         Toast.makeText(ConsumptionInfoActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
                     }
@@ -139,6 +145,9 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
         if(startDateText.getText().toString().isEmpty()) {
             String date = "Start Date and Time- " + (month + 1) + "/" + day + "/" + year;
             startDateText.setText(date);
@@ -161,6 +170,8 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
 
     @Override
     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+        this.hour = hour;
+        this.minute = minute;
         if(startDateText.getText().toString().isEmpty()) {
             String time = "Start Time & Date- " + hour + ":" + minute;
             if(hour >= 0 && hour < 12){
