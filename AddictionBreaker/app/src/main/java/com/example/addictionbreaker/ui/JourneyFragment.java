@@ -1,5 +1,7 @@
 package com.example.addictionbreaker.ui;
 
+import android.content.res.Resources;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,8 +11,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.addictionbreaker.R;
+import com.example.addictionbreaker.data.DatabaseHelper;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +28,19 @@ public class JourneyFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private DatabaseHelper myDb;
+    private int lifeLost;
+    private int lifeLost_hour;
+    private int lifeLost_minute;
+    private int lifeLost_day;
+    private int money;
+    private int numberOfConsumption;
+    private int frequency;
+    private int cost;
+    private int numbersOfDays;
+    private TextView journey_numberOfConsumption  ;
+    private TextView journey_money;
+    private TextView journey_lifeLost;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -69,5 +86,40 @@ public class JourneyFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        myDb = new DatabaseHelper(getContext());
+        journey_numberOfConsumption = view.findViewById(R.id.journey_numberOfConsumption);
+        journey_money= view.findViewById(R.id.journey_money);
+        journey_lifeLost= view.findViewById(R.id.journey_lifeLost);
+        Resources res = getResources();
+        String displayUsage = String.format(res.getString(R.string.journey_numberOfConsumption),Integer.toString(getConsumption()));
+        journey_numberOfConsumption.setText(Integer.toString(getFrequency()));
+//        String displayMoneyCost =
+//        String displayLifeLost =
+    }
+    private int getFrequency() {
+        Cursor res = myDb.getAllData();
+        while(res.moveToNext()) {
+            frequency = res.getInt(5);
+        }
+        return frequency;
+    }
+    private int getCost() {
+        Cursor res = myDb.getAllData();
+        while(res.moveToNext()) {
+            cost = res.getInt(6);
+        }
+        return cost;
+    }
+    private int getConsumption(){
+        numberOfConsumption =  getFrequency()*getNumberOfDays();
+        return numberOfConsumption;
+    }
+    private int getNumberOfDays() {
+        Cursor res = myDb.getAllData();
+        while(res.moveToNext()) {
+            numbersOfDays = res.getInt(6);
+        }
+        return numbersOfDays;
     }
 }
+
