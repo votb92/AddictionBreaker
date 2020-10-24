@@ -2,10 +2,14 @@ package com.example.addictionbreaker.ui;
 
 import android.content.res.Resources;
 import android.database.Cursor;
+
+import android.os.Build;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -29,7 +33,8 @@ public class JourneyFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     private DatabaseHelper myDb;
-    private int lifeLost;
+
+    private int lifeLostInSeconds;
     private int lifeLost_hour;
     private int lifeLost_minute;
     private int lifeLost_day;
@@ -83,6 +88,7 @@ public class JourneyFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_journey, container, false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -91,10 +97,15 @@ public class JourneyFragment extends Fragment {
         journey_money= view.findViewById(R.id.journey_money);
         journey_lifeLost= view.findViewById(R.id.journey_lifeLost);
         Resources res = getResources();
+        setLifeLost();
         String displayUsage = String.format(res.getString(R.string.journey_numberOfConsumption),Integer.toString(getConsumption()));
-        journey_numberOfConsumption.setText(Integer.toString(getFrequency()));
-//        String displayMoneyCost =
-//        String displayLifeLost =
+        String displayMoneyCost = String.format(res.getString(R.string.journey_money),Integer.toString(getTotalCost()));
+        String displayLifeLost = String.format(res.getString(R.string.journey_lifeLost),Integer.toString(lifeLost_day)
+                ,Integer.toString(lifeLost_hour),Integer.toString(lifeLost_minute));
+        journey_numberOfConsumption.setText(displayUsage);
+        journey_money.setText(displayMoneyCost);
+        journey_lifeLost.setText(displayLifeLost);
+
     }
     private int getFrequency() {
         Cursor res = myDb.getAllData();
@@ -114,6 +125,11 @@ public class JourneyFragment extends Fragment {
         numberOfConsumption =  getFrequency()*getNumberOfDays();
         return numberOfConsumption;
     }
+    private int getTotalCost(){
+        money =  getCost()*getNumberOfDays();
+        return money;
+
+    }
     private int getNumberOfDays() {
         Cursor res = myDb.getAllData();
         while(res.moveToNext()) {
@@ -121,5 +137,17 @@ public class JourneyFragment extends Fragment {
         }
         return numbersOfDays;
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void setLifeLost(){
+        lifeLostInSeconds = getConsumption() * 9 * 60;
+        int time = lifeLostInSeconds;
+        lifeLost_day =  Math.floorDiv( time , (24 * 3600));
+        time = time % (24 * 3600);
+        lifeLost_hour = Math.floorDiv(time , 3600);
+        time %= 3600;
+        lifeLost_minute =Math.floorDiv( time , 60);
+    }
+
 }
 

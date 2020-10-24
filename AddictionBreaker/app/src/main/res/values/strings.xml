@@ -130,7 +130,7 @@
     <string name="notification_prompt">Setup Notifications</string>
     <string name="notifications">Notifications</string>
     <string name="pick_time_for_notifications">Pick the time you want to receive notifications</string>
-    <string name="journey_lifeLost">%1$s d %1$s h %1$s m</string>
+    <string name="journey_lifeLost">%1$s d %2$s h %3$s m</string>
     <string name="journey_money">$ %1$s </string>
     <string name="journey_numberOfConsumption">%1$s</string>
 
