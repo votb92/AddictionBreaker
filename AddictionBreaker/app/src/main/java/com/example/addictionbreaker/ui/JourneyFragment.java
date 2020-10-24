@@ -2,7 +2,9 @@ package com.example.addictionbreaker.ui;
 
 import android.content.res.Resources;
 import android.database.Cursor;
+
 import android.os.Build;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -31,6 +33,7 @@ public class JourneyFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     private DatabaseHelper myDb;
+
     private int lifeLostInSeconds;
     private int lifeLost_hour;
     private int lifeLost_minute;
@@ -125,6 +128,7 @@ public class JourneyFragment extends Fragment {
     private int getTotalCost(){
         money =  getCost()*getNumberOfDays();
         return money;
+
     }
     private int getNumberOfDays() {
         Cursor res = myDb.getAllData();
@@ -133,6 +137,7 @@ public class JourneyFragment extends Fragment {
         }
         return numbersOfDays;
     }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setLifeLost(){
         lifeLostInSeconds = getConsumption() * 9 * 60;
@@ -143,5 +148,6 @@ public class JourneyFragment extends Fragment {
         time %= 3600;
         lifeLost_minute =Math.floorDiv( time , 60);
     }
+
 }
 
