@@ -33,7 +33,6 @@ public class JourneyFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     private DatabaseHelper myDb;
-
     private int lifeLostInSeconds;
     private int lifeLost_hour;
     private int lifeLost_minute;
@@ -110,14 +109,14 @@ public class JourneyFragment extends Fragment {
     private int getFrequency() {
         Cursor res = myDb.getAllData();
         while(res.moveToNext()) {
-            frequency = res.getInt(5);
+            frequency = res.getInt(4);
         }
         return frequency;
     }
     private int getCost() {
         Cursor res = myDb.getAllData();
         while(res.moveToNext()) {
-            cost = res.getInt(6);
+            cost = res.getInt(5);
         }
         return cost;
     }
@@ -128,7 +127,6 @@ public class JourneyFragment extends Fragment {
     private int getTotalCost(){
         money =  getCost()*getNumberOfDays();
         return money;
-
     }
     private int getNumberOfDays() {
         Cursor res = myDb.getAllData();
@@ -137,7 +135,6 @@ public class JourneyFragment extends Fragment {
         }
         return numbersOfDays;
     }
-
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setLifeLost(){
         lifeLostInSeconds = getConsumption() * 9 * 60;
@@ -148,6 +145,5 @@ public class JourneyFragment extends Fragment {
         time %= 3600;
         lifeLost_minute =Math.floorDiv( time , 60);
     }
-
 }
 
