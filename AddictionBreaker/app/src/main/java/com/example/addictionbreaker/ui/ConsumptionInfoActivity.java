@@ -82,6 +82,8 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
                 }
                 if(!isBlank){
                     String newInfo = gson.toJson(user);
+                    user.setConsumption(Integer.parseInt(averageConsumption.getText().toString()));
+                    user.setCostOfAddiction(Integer.parseInt(averageCost.getText().toString()));
                     myPrefs.edit().putString("userInfo", newInfo).commit();
                     boolean isInserted = myDb.insertData(user.getName(), Integer.toString(user.getAge()), user.getAddiction(),Integer.toString(user.getConsumption()),Integer.toString(user.getCostOfAddiction()),
                             Integer.toString(year),Integer.toString(month),Integer.toString(day),Integer.toString(hour),Integer.toString(minute) );
