@@ -2,7 +2,9 @@ package com.example.addictionbreaker.ui;
 
 import android.content.res.Resources;
 import android.database.Cursor;
+
 import android.os.Build;
+
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
