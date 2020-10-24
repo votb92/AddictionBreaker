@@ -107,14 +107,14 @@ public class JourneyFragment extends Fragment {
     private int getFrequency() {
         Cursor res = myDb.getAllData();
         while(res.moveToNext()) {
-            frequency = res.getInt(5);
+            frequency = res.getInt(4);
         }
         return frequency;
     }
     private int getCost() {
         Cursor res = myDb.getAllData();
         while(res.moveToNext()) {
-            cost = res.getInt(6);
+            cost = res.getInt(5);
         }
         return cost;
     }
