@@ -2,8 +2,10 @@ package com.example.addictionbreaker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +27,7 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
         setContentView(R.layout.activity_reset_progress);
 
         DatabaseHelper db = new DatabaseHelper(getApplicationContext());
+
         Button resetDate = findViewById(R.id.reset_date_button);
         Button resetTime = findViewById(R.id.reset_time_button);
         resetInfo = findViewById(R.id.reset_info_text);
@@ -47,8 +50,21 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
         resetProgress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ResetProgressActivity.this, HomeActivity.class);
-                startActivity(intent);
+                new AlertDialog.Builder(ResetProgressActivity.this)
+                        .setTitle("Reset Progress")
+                        .setMessage("Are you sure you want to reset your progress?")
+                        .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                switch (v.getId()){
+                                    case R.id.reset_progress_button:
+                                        Intent intent = new Intent(ResetProgressActivity.this, HomeActivity.class);
+                                        startActivity(intent);
+                                        break;
+                                }
+                            }
+                        })
+                        .setNegativeButton("no", null).show();
             }
         });
 
