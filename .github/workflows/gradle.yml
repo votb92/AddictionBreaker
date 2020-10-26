@@ -24,3 +24,5 @@ jobs:
       run: chmod +x AddictionBreaker/gradlew
     - name: Build with Gradle
       run: AddictionBreaker/gradlew build
+    - name: Test UserTest
+      run: AddictionBreaker/app/src/test/java/com/example/addictionbreaker/model/UserTest.java 
