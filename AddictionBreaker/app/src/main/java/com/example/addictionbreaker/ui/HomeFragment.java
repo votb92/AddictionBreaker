@@ -118,7 +118,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ResetProgressActivity.class);
                 startActivity(intent);
-                myDb.updateDay(0);
             }
         });
 

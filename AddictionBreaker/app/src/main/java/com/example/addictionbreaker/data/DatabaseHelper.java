@@ -49,6 +49,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean updateStartInfo(String year, String month, String day, String hour, String minute){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_8, year);
+        contentValues.put(COL_9, month);
+        contentValues.put(COL_10, day);
+        contentValues.put(COL_11, hour);
+        contentValues.put(COL_12, minute);
+        db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{"1"});
+        return true;
+    }
+
     public boolean insertData(String name, String age, String addiction, String frequency, String cost, String startYear, String startMonth, String startDay, String startHour, String startMinute){
         String firstDay = "0";
         SQLiteDatabase db = this.getWritableDatabase();
