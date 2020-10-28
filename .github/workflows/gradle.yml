@@ -26,5 +26,3 @@ jobs:
       run: AddictionBreaker/gradlew build
     - name: Grant execute permission for UserTest
       run: chmod +x AddictionBreaker/app/src/test/java/com/example/addictionbreaker/model/UserTest.java 
-    - name: Test UserTest  
-      run: AddictionBreaker/app/src/test/java/com/example/addictionbreaker/model/UserTest.java  
