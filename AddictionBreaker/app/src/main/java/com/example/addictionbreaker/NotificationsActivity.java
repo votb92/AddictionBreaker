@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -17,6 +19,14 @@ public class NotificationsActivity extends AppCompatActivity implements TimePick
         setContentView(R.layout.activity_notifications);
 
         timeText = findViewById(R.id.time_text);
+        Button notificationsButton = findViewById(R.id.notifications_time_button);
+
+        notificationsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTimePickerDialog();
+            }
+        });
     }
 
     private void showTimePickerDialog() {
@@ -30,9 +40,9 @@ public class NotificationsActivity extends AppCompatActivity implements TimePick
     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
         String time;
         if (hour >= 0 && hour < 12) {
-            time = "Start Time & Date- " + hour + ":" + minute + " AM";
+            time = "Notification Time- " + hour + ":" + minute + " AM";
         } else {
-            time = "Start Time & Date- " + hour + ":" + minute + " PM";
+            time = "Notification Time- " + hour + ":" + minute + " PM";
         }
 
         timeText.setText(time);
