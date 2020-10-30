@@ -133,6 +133,7 @@
     <string name="journey_lifeLost">%1$s d %2$s h %3$s m</string>
     <string name="journey_money">$ %1$s </string>
     <string name="journey_numberOfConsumption">%1$s</string>
+    <string name="done">Done</string>
 
 
 </resources>
