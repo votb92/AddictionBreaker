@@ -2,7 +2,10 @@ package com.example.addictionbreaker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.TimePickerDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,5 +49,15 @@ public class NotificationsActivity extends AppCompatActivity implements TimePick
         }
 
         timeText.setText(time);
+    }
+
+    private void createNotificationChannel(){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            CharSequence name = "AddictionReminderChannel";
+            String description = "Channel for reminder";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("AddictionReminder", name, importance);
+            channel.setDescription(description);
+        }
     }
 }
