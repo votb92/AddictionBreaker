@@ -39,6 +39,7 @@ public class HomeFragment extends Fragment {
     private Button resetButton;
     private TextView home_numberOfDays;
     private String numbersOfDays;
+    private TextView greeting;
     ArrayList<Integer> startDate = new ArrayList<>();
 
 
@@ -87,8 +88,11 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        greeting = view.findViewById(R.id.greeting_text);
         myDb = new DatabaseHelper(getContext());
+        String userName = myDb.getUserName();
+
+        greeting.append(" " + userName);
         getStartDate();
 
         Log.i("year", String.valueOf(startDate.get(0)));

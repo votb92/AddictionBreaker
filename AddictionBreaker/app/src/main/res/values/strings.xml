@@ -134,6 +134,8 @@
     <string name="journey_money">$ %1$s </string>
     <string name="journey_numberOfConsumption">%1$s</string>
     <string name="done">Done</string>
+    <string name="welcome">Welcome Back,</string>
+    <string name="welcome_progress">Your Progress</string>
 
 
 </resources>

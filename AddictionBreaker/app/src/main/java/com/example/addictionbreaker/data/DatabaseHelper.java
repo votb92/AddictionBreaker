@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.addictionbreaker.model.User;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "user.db";
     public static final String TABLE_NAME = "user_table";
@@ -88,5 +90,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " +TABLE_NAME,null);
         return res;
+    }
+
+    public String getUserName(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " +TABLE_NAME,null);
+        String name = "";
+        if(res.moveToFirst()){
+            res.moveToFirst();
+            name = res.getString(1);
+        }
+        res.close();
+        return name;
     }
 }
