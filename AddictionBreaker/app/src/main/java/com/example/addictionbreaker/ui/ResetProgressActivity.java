@@ -1,8 +1,7 @@
 package com.example.addictionbreaker.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
@@ -21,6 +20,12 @@ import java.util.Calendar;
 
 public class ResetProgressActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
     private TextView resetInfo;
+    private int day;
+    private int month;
+    private int year;
+    private int hour;
+    private int minute;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +55,7 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
         resetProgress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(resetInfo.getText().toString().contains(":") && resetInfo.getText().toString().contains("/")){
                 new AlertDialog.Builder(ResetProgressActivity.this)
                         .setTitle("Reset Progress")
                         .setMessage("Are you sure you want to reset your progress?")
@@ -58,6 +64,8 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 switch (v.getId()){
                                     case R.id.reset_progress_button:
+                                        db.updateDay(0);
+                                        db.updateStartInfo(String.valueOf(year), String.valueOf(month), String.valueOf(day), String.valueOf(hour), String.valueOf(minute));
                                         Intent intent = new Intent(ResetProgressActivity.this, HomeActivity.class);
                                         startActivity(intent);
                                         break;
@@ -65,8 +73,16 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
                             }
                         })
                         .setNegativeButton("no", null).show();
+                }
+                else{
+                    AlertDialog a = new AlertDialog.Builder(resetProgress.getContext()).create();
+                    a.setTitle("Missing/Blank Fields!");
+                    a.setMessage("Make sure you pick your new start time and date");
+                    a.show();
+                }
             }
         });
+
 
 
     }
@@ -90,6 +106,10 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
 
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+
         if(resetInfo.getText().toString().isEmpty()) {
             String date = "Start Date and Time- " + (month + 1) + "/" + day + "/" + year;
             resetInfo.setText(date);
@@ -104,6 +124,9 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
 
     @Override
     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+        this.hour = hour;
+        this.minute = minute;
+
         if(resetInfo.getText().toString().isEmpty()) {
             String time = "Start Time & Date- " + hour + ":" + minute;
             if(hour >= 0 && hour < 12){

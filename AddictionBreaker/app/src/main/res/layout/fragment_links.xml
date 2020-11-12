@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.04000002" />
 
     <TextView
         android:id="@+id/textView7"
@@ -172,6 +172,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="276dp"
         android:text="1-800-273-8255"
+        android:autoLink="phone"
         android:textColor="#FF0057"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -198,6 +199,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="204dp"
         android:text="1-800-729-6686"
+        android:autoLink="phone"
         android:textColor="#FF0057"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -224,6 +226,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="288dp"
         android:text="@string/_1_844_289_0879"
+        android:autoLink="phone"
         android:textColor="#FF0057"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -248,6 +251,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="288dp"
         android:text="@string/_1_800_784_8669"
+        android:autoLink="phone"
         android:textColor="#FF0057"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

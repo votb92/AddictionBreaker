@@ -11,15 +11,14 @@
         android:id="@+id/home_topText3"
         android:layout_width="104dp"
         android:layout_height="46dp"
-        android:layout_marginTop="328dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="64dp"
         android:gravity="center"
         android:text="@string/addiction_tag"
         android:textColor="@color/design_default_color_background"
-        app:layout_constraintBottom_toTopOf="@+id/home_numberOfDays"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
         tools:text="NO MORE ADDICTION" />
 
     <Button
@@ -38,12 +37,9 @@
         android:id="@+id/home_btmText3"
         android:layout_width="69dp"
         android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="252dp"
         android:gravity="center"
         android:text="@string/days_tag"
         android:textColor="@color/design_default_color_background"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/home_numberOfDays"
@@ -55,11 +51,9 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.562"
+        app:layout_constraintTop_toBottomOf="@+id/home_topText3"
         tools:text="0" />
 
     <Button
@@ -70,4 +64,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yourProfileButton" />
+
+    <TextView
+        android:id="@+id/greeting_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="132dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/welcome"
+        android:textColor="#FFFEFE"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/welcome_progress"
+        android:textColor="#FDFDFD"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greeting_text" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
