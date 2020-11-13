@@ -25,6 +25,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_10 = "STARTDAY";
     public static final String COL_11 = "STARTHOUR";
     public static final String COL_12 = "STARTMINUTE";
+    public static final String COL_13 = "REMINDERHOUR";
+    public static final String COL_14 = "REMINDERMINUTE";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -33,7 +35,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+ TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, " +
-                "AGE INTEGER, ADDICTION TEXT, FREQUENCY INTEGER, COST INTEGER, DAY INTEGER, STARTYEAR INTEGER, STARTMONTH INTEGER,STARTDAY INTEGER,STARTHOUR INTEGER,STARTMINUTE INTEGER)");
+                "AGE INTEGER, ADDICTION TEXT, FREQUENCY INTEGER, COST INTEGER, DAY INTEGER, STARTYEAR INTEGER, STARTMONTH INTEGER,STARTDAY INTEGER,STARTHOUR INTEGER,STARTMINUTE INTEGER," +
+                "REMINDERHOUR INTEGER, REMINDERMINUTE INTEGER)");
     }
 
     @Override
@@ -102,5 +105,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         res.close();
         return name;
+    }
+
+    public void addReminderTime(int hour, int minute){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_13, hour);
+        contentValues.put(COL_14, minute);
+        db.insert(TABLE_NAME, null, contentValues);
+    }
+
+    public int[] getRemindertime(){
+        int times[] = new int[2];
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " +TABLE_NAME,null);
+        if(res.moveToFirst()){
+            res.moveToFirst();
+            times[0] = res.getInt(12);
+            times[1] = res.getInt(13);
+        }
+        res.close();
+        return times;
     }
 }

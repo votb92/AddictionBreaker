@@ -95,7 +95,6 @@ public class HomeFragment extends Fragment {
         greeting.append(" " + userName);
         getStartDate();
 
-        Log.i("year", String.valueOf(startDate.get(0)));
         yourProfileButton = view.findViewById(R.id.yourProfileButton);
         viewAll();
         gettingNumberOfDays();
@@ -131,6 +130,7 @@ public class HomeFragment extends Fragment {
         Cursor res = myDb.getAllData();
         while(res.moveToNext()) {
             numbersOfDays = res.getString(6);
+            break;
         }
         return Integer.parseInt(numbersOfDays);
     }
