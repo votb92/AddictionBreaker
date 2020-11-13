@@ -8,25 +8,44 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".NotificationsActivity"></activity>
-        <activity android:name=".ui.ResetProgressActivity" />
-        <activity android:name=".AddAddiction" />
+        android:theme="@style/AppTheme"
+        >
+        <activity android:name=".NotificationsActivity"
+                android:screenOrientation="portrait"
+                android:configChanges="orientation|keyboardHidden"></activity>
+        <activity android:name=".ui.ResetProgressActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name=".AddAddiction"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
         <activity
             android:name=".AdictionList"
             android:label="@string/title_activity_adiction_list"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.HomeActivity" />
-        <activity android:name=".ui.ConsumptionInfoActivity" />
-        <activity android:name=".ui.FormActivity" />
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.HomeActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name=".ui.ConsumptionInfoActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name=".ui.FormActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name=".ui.MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".Receiver"/>
+        <receiver android:name=".Receiver"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden"/>
     </application>
 
 </manifest>
