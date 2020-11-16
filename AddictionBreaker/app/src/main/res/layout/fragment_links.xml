@@ -9,29 +9,17 @@
     >
 
     <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/links"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.14" />
-
-    <TextView
         android:id="@+id/textView7"
-        android:layout_width="201dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="221dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="76dp"
         android:text="Links For Alcohol Addiction"
         android:textColor="#FF0000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.573"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
     <TextView
@@ -111,6 +99,7 @@
         android:textColor="#FF0057"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Alcohol_Impact_Brain" />
 
@@ -141,7 +130,7 @@
         android:id="@+id/textView25"
         android:layout_width="211dp"
         android:layout_height="22dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="112dp"
         android:text="@string/hotline_numbers_for_addictions"
         android:textColor="#FF0057"
         android:textStyle="bold|italic"
@@ -207,12 +196,13 @@
         android:id="@+id/textView31"
         android:layout_width="212dp"
         android:layout_height="18dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:lineSpacingExtra="8sp"
         android:text="@string/alcohol_addiction_hotline"
         android:textColor="#000000"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView30" />
 
