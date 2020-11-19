@@ -24,8 +24,6 @@ import android.widget.TextView;
 import com.example.addictionbreaker.R;
 import com.example.addictionbreaker.data.DatabaseHelper;
 
-import org.junit.runner.manipulation.Ordering;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link JourneyFragment#newInstance} factory method to
@@ -38,6 +36,7 @@ public class JourneyFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private String addiction = "cigarettes" ;
     private DatabaseHelper myDb;
     private int lifeLostInSeconds;
     private int lifeLost_hour;
@@ -51,6 +50,8 @@ public class JourneyFragment extends Fragment {
     private TextView journey_numberOfConsumption  ;
     private TextView journey_money;
     private TextView journey_lifeLost;
+    private TextView FirstDescription;
+    private ImageView AddictiveObject;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -87,6 +88,9 @@ public class JourneyFragment extends Fragment {
 
     int checkedbox = R.drawable.checked_box;
     int[] requirement= {1, 3 , 5, 7, 10, 14, 30, 60, 100};
+
+    String[] rFirstDescription = {"Cigarettes YOU didn't Smoke","Alcoholic Drinks YOU didn't consume","Pod YOU didn't Smoked"};
+    int[] rAddictiveObjects = {R.drawable.add3, R.drawable.alcohol, R.drawable.vape};
     public JourneyFragment() {
         // Required empty public constructor
     }
@@ -130,6 +134,10 @@ public class JourneyFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         myDb = new DatabaseHelper(getContext());
+
+        FirstDescription = view.findViewById(R.id.FirstDescription);
+        AddictiveObject = view.findViewById(R.id.AddictiveObject);
+        settingImgAndTitles();
         journey_numberOfConsumption = view.findViewById(R.id.journey_numberOfConsumption);
         journey_money= view.findViewById(R.id.journey_money);
         journey_lifeLost= view.findViewById(R.id.journey_lifeLost);
@@ -149,6 +157,22 @@ public class JourneyFragment extends Fragment {
         listView.setAdapter(adapter);
 
     }
+    private void settingImgAndTitles() {
+        setAddiction();
+        switch(addiction){
+            case "Alcohol":
+                FirstDescription.setText(rFirstDescription[1]);
+                AddictiveObject.setImageResource(rAddictiveObjects[1]);
+                break;
+            case "Vaping/Juuling":
+                FirstDescription.setText(rFirstDescription[2]);
+                AddictiveObject.setImageResource(rAddictiveObjects[2]);
+                break;
+            default :
+                FirstDescription.setText(rFirstDescription[0]);
+                AddictiveObject.setImageResource(rAddictiveObjects[0]);
+        }
+    }
     private int getFrequency() {
         Cursor res = myDb.getAllData();
         while(res.moveToNext()) {
@@ -166,6 +190,13 @@ public class JourneyFragment extends Fragment {
     private int getConsumption(){
         numberOfConsumption =  getFrequency()*getNumberOfDays();
         return numberOfConsumption;
+    }
+    private String setAddiction(){
+        Cursor res = myDb.getAllData();
+        while(res.moveToNext()) {
+            addiction = res.getString(3);
+        }
+        return addiction;
     }
     private int getTotalCost(){
         money =  getCost()*getNumberOfDays();
@@ -233,6 +264,7 @@ public class JourneyFragment extends Fragment {
             }
             return false;
         }
+
     }
 }
 
