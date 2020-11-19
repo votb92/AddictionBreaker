@@ -85,6 +85,8 @@ public class JourneyFragment extends Fragment {
             R.drawable.empty_checkbox,
             R.drawable.empty_checkbox};
 
+    int checkedbox = R.drawable.checked_box;
+    int[] requirement= {1, 3 , 5, 7, 10, 14, 30, 60, 100};
     public JourneyFragment() {
         // Required empty public constructor
     }
@@ -212,10 +214,24 @@ public class JourneyFragment extends Fragment {
             TextView main_title = achievement_list.findViewById(R.id.main_title);
             TextView sub_title = achievement_list.findViewById(R.id.sub_title);
 
-            imgs.setImageResource(rImgs[position]);
+
             main_title.setText(rTitle[position]);
             sub_title.setText(rDescription[position]);
+            if (checkAchievement(position)){
+                imgs.setImageResource(checkedbox);
+            }
+            else {
+            imgs.setImageResource(rImgs[position]);
+            }
             return achievement_list;
+        }
+
+        public boolean checkAchievement(int position){
+            int numbsOfDays = getNumberOfDays();
+            if (numbsOfDays >= requirement[position]){
+                    return true;
+            }
+            return false;
         }
     }
 }
