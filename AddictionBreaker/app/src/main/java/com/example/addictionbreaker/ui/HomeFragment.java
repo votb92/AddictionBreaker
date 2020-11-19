@@ -40,6 +40,9 @@ public class HomeFragment extends Fragment {
     private TextView home_numberOfDays;
     private String numbersOfDays;
     private TextView greeting;
+    private TextView weeks_count;
+    private TextView months_count;
+    private TextView year_count;
     ArrayList<Integer> startDate = new ArrayList<>();
 
 
@@ -95,8 +98,10 @@ public class HomeFragment extends Fragment {
         greeting.append(" " + userName);
         getStartDate();
 
-        Log.i("year", String.valueOf(startDate.get(0)));
         yourProfileButton = view.findViewById(R.id.yourProfileButton);
+        weeks_count = view.findViewById(R.id.weeks_count);
+        months_count = view.findViewById(R.id.months_count);
+        year_count = view.findViewById(R.id.years_count);
         viewAll();
         gettingNumberOfDays();
 
@@ -111,6 +116,13 @@ public class HomeFragment extends Fragment {
 
         long difference = currentInMillis - startingInMillis;
         long numDays = difference / (24 * 60 * 60 * 1000);
+        int weeks = (int) numDays / 7;
+        int months = (int) numDays/ 30;
+        int years = (int) numDays/365;
+
+        weeks_count.setText(String.valueOf(weeks));
+        months_count.setText(String.valueOf(months));
+        year_count.setText(String.valueOf(years));
         numbersOfDays = String.valueOf(numDays);
         setDay(numDays);
 
@@ -131,6 +143,7 @@ public class HomeFragment extends Fragment {
         Cursor res = myDb.getAllData();
         while(res.moveToNext()) {
             numbersOfDays = res.getString(6);
+            break;
         }
         return Integer.parseInt(numbersOfDays);
     }

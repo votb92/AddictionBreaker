@@ -11,14 +11,14 @@
         android:id="@+id/home_topText3"
         android:layout_width="104dp"
         android:layout_height="46dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="@string/addiction_tag"
         android:textColor="@color/design_default_color_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/progress_text"
         tools:text="NO MORE ADDICTION" />
 
     <Button
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="64dp"
         android:text="@string/profile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +69,7 @@
         android:id="@+id/greeting_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="100dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/welcome"
         android:textColor="#FFFEFE"
@@ -80,7 +80,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/progress_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -92,5 +92,75 @@
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greeting_text" />
+
+    <TextView
+        android:id="@+id/weeks_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/weeks"
+        android:textColor="#FBF9F9"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/yourProfileButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/months_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/months"
+        android:textColor="#FFFDFD"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/yourProfileButton"
+        app:layout_constraintEnd_toStartOf="@+id/years_text"
+        app:layout_constraintStart_toEndOf="@+id/weeks_text" />
+
+    <TextView
+        android:id="@+id/years_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/years"
+        android:textColor="#FAF9F9"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/yourProfileButton"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/weeks_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#FBF9F9"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/weeks_text"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/months_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textColor="#FBFAFA"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/months_text"
+        app:layout_constraintEnd_toStartOf="@+id/years_count"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toEndOf="@+id/weeks_count" />
+
+    <TextView
+        android:id="@+id/years_count"
+        android:layout_width="10dp"
+        android:layout_height="21dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#F6F3F3"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/years_text"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
