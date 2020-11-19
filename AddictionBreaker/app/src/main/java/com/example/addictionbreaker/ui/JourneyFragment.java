@@ -1,5 +1,6 @@
 package com.example.addictionbreaker.ui;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.database.Cursor;
 
@@ -15,10 +16,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.addictionbreaker.R;
 import com.example.addictionbreaker.data.DatabaseHelper;
+
+import org.junit.runner.manipulation.Ordering;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,6 +54,36 @@ public class JourneyFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    ListView listView;
+    String mTitle[]={"The Journey Starts",
+            "Every Day Counts",
+            "Steady Progress",
+            "A Week of Awesome",
+            "Double Digits",
+            "The Worst is Behind",
+            "Don't Stop Me Now",
+            "Two SOLID Months",
+            "A Hundred Days!",
+            };
+    String mDescription[]={"1 Day",
+            "3 Days",
+            "5 Days",
+            "1 Week",
+            "10 Days",
+            "2 Weeks",
+            "1 Month",
+            "2 Months",
+            "100 Days"};
+    int images[]={R.drawable.empty_checkbox,
+            R.drawable.empty_checkbox,
+            R.drawable.empty_checkbox,
+            R.drawable.empty_checkbox,
+            R.drawable.empty_checkbox,
+            R.drawable.empty_checkbox,
+            R.drawable.empty_checkbox,
+            R.drawable.empty_checkbox,
+            R.drawable.empty_checkbox};
 
     public JourneyFragment() {
         // Required empty public constructor
@@ -105,6 +141,11 @@ public class JourneyFragment extends Fragment {
         journey_money.setText(displayMoneyCost);
         journey_lifeLost.setText(displayLifeLost);
 
+        listView = view.findViewById(R.id.achievement_cards);
+
+        MyAdapter adapter = new MyAdapter(getActivity().getApplicationContext(), mTitle, mDescription, images);
+        listView.setAdapter(adapter);
+
     }
     private int getFrequency() {
         Cursor res = myDb.getAllData();
@@ -144,6 +185,38 @@ public class JourneyFragment extends Fragment {
         lifeLost_hour = Math.floorDiv(time , 3600);
         time %= 3600;
         lifeLost_minute =Math.floorDiv( time , 60);
+    }
+
+    class MyAdapter extends ArrayAdapter<String>{
+        Context context;
+        String rTitle[];
+        String rDescription[];
+        int rImgs[];
+
+        MyAdapter(Context c, String title[], String description[], int imgs[]){
+            super(c, R.layout.achievement_list, R.id.main_title, title);
+            this.context = c;
+            this.rTitle = title;
+            this.rDescription = description;
+            this.rImgs = imgs;
+
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            Context c = getActivity().getApplicationContext();
+            LayoutInflater layoutInflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View achievement_list = layoutInflater.inflate(R.layout.achievement_list, parent, false);
+            ImageView imgs = achievement_list.findViewById(R.id.image);
+            TextView main_title = achievement_list.findViewById(R.id.main_title);
+            TextView sub_title = achievement_list.findViewById(R.id.sub_title);
+
+            imgs.setImageResource(rImgs[position]);
+            main_title.setText(rTitle[position]);
+            sub_title.setText(rDescription[position]);
+            return achievement_list;
+        }
     }
 }
 
