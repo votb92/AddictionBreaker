@@ -39,14 +39,14 @@
                 android:id="@+id/cardTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="During the period that you smoked:"
+                android:text="So far :"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="During the period that you smoked:" />
+                tools:text="So far:" />
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/AddictiveObject"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
@@ -62,7 +62,7 @@
                 android:layout_marginTop="4dp"
                 android:src="@drawable/money_wasted"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintTop_toBottomOf="@+id/AddictiveObject" />
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -84,7 +84,7 @@
                 android:textColor="@color/design_default_color_error"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.2"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toEndOf="@+id/AddictiveObject"
                 app:layout_constraintTop_toBottomOf="@+id/cardTitle"
                 tools:text="365" />
 
@@ -116,13 +116,13 @@
                 tools:text="2d 18h 55m" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/FirstDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:text="Cigarettes Smoked"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toEndOf="@+id/AddictiveObject"
                 app:layout_constraintTop_toBottomOf="@+id/journey_numberOfConsumption"
                 tools:text="Cigarettes Smoked" />
 
@@ -131,22 +131,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:text="Money Wasted"
+                android:text="Money Saved"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toBottomOf="@+id/journey_money"
-                tools:text="Money Wasted" />
+                tools:text="Money Saved" />
 
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:text="Life Lost"
+                android:text="Life Saved"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
                 app:layout_constraintTop_toBottomOf="@+id/journey_lifeLost"
-                tools:text="Life Lost" />
+                tools:text="Life Saved" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
