@@ -11,7 +11,6 @@ import androidx.core.app.NotificationManagerCompat;
 public class Receiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "Reminder Set", Toast.LENGTH_SHORT).show();
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "addictionReminder")
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setContentTitle("Let's Stay On Track!")
