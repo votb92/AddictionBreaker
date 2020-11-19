@@ -136,6 +136,9 @@
     <string name="done">Done</string>
     <string name="welcome">Welcome</string>
     <string name="welcome_progress">Your Progress</string>
-
+    <string name="weeks">Weeks</string>
+    <string name="months">Months</string>
+    <string name="years">Years</string>
+    <string name="back">Go Back</string>
 
 </resources>
