@@ -68,7 +68,7 @@
                 android:id="@+id/imageView4"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
                 android:src="@drawable/time_wasted"
                 app:layout_constraintStart_toStartOf="parent"
@@ -155,24 +155,24 @@
                 android:layout_marginTop="24dp"
                 android:text="1 Week"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.047"
+                app:layout_constraintHorizontal_bias="0.026"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/WeekCost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="108dp"
                 android:layout_marginTop="24dp"
                 android:text="TextView"
-                app:layout_constraintEnd_toStartOf="@+id/textView23"
+                app:layout_constraintEnd_toStartOf="@+id/WeekLife"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/WeekLife"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -185,23 +185,24 @@
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
                 android:text="1 Month"
-                app:layout_constraintTop_toBottomOf="@+id/textView12"
-                tools:layout_editor_absoluteX="16dp" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
-                android:id="@+id/textView27"
+                android:id="@+id/MonthCost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="104dp"
                 android:layout_marginTop="24dp"
                 android:text="TextView"
                 app:layout_constraintStart_toEndOf="@+id/textView24"
-                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                app:layout_constraintTop_toBottomOf="@+id/WeekCost" />
 
             <TextView
-                android:id="@+id/textView35"
+                android:id="@+id/MonthLife"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
@@ -209,31 +210,31 @@
                 android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/textView27"
-                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+                app:layout_constraintStart_toEndOf="@+id/MonthCost"
+                app:layout_constraintTop_toBottomOf="@+id/WeekLife" />
 
             <TextView
                 android:id="@+id/textView36"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
                 android:text="1 Year"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
             <TextView
-                android:id="@+id/textView38"
+                android:id="@+id/YearCost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="92dp"
                 android:layout_marginTop="24dp"
                 android:text="space"
                 app:layout_constraintStart_toEndOf="@+id/textView36"
-                app:layout_constraintTop_toBottomOf="@+id/textView27" />
+                app:layout_constraintTop_toBottomOf="@+id/MonthCost" />
 
             <TextView
-                android:id="@+id/textView39"
+                android:id="@+id/YearLife"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="96dp"
@@ -241,8 +242,8 @@
                 android:text="space"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.047"
-                app:layout_constraintStart_toEndOf="@+id/textView38"
-                app:layout_constraintTop_toBottomOf="@+id/textView35" />
+                app:layout_constraintStart_toEndOf="@+id/YearCost"
+                app:layout_constraintTop_toBottomOf="@+id/MonthLife" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
