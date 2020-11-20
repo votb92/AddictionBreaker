@@ -165,23 +165,23 @@ public class JourneyFragment extends Fragment {
         String aWeekCost = Integer.toString( getCost()*7);
         WeekCost.setText(aWeekCost);
 
-        //WeekLife = view.findViewById(R.id.WeekLife);
-        //WeekLife.setText(get);
+        WeekLife = view.findViewById(R.id.WeekLife);
+        WeekLife.setText(getLifeLost(7));
 
 
         MonthCost = view.findViewById(R.id.MonthCost);
         String aMonthCost = Integer.toString(getCost()*30);
         MonthCost.setText(aMonthCost);
 
-        //MonthLife = view.findViewById(R.id.MonthLife);
+        MonthLife = view.findViewById(R.id.MonthLife);
+        MonthLife.setText(getLifeLost(30));
 
         YearCost = view.findViewById(R.id.YearCost);
         String aYearCost = Integer.toString(getCost()*365);
         YearCost.setText(aYearCost);
 
-        //YearLife = view.findViewById(R.id.YearLife);
-
-
+        YearLife = view.findViewById(R.id.YearLife);
+        YearLife.setText(getLifeLost(365));
 
         listView = view.findViewById(R.id.achievement_cards);
 
@@ -251,7 +251,18 @@ public class JourneyFragment extends Fragment {
         time %= 3600;
         lifeLost_minute =Math.floorDiv( time , 60);
     }
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private String getLifeLost(int Days){
+        int lifeLostInSeconds = getFrequency()* Days * 9 * 60;
+        int time = lifeLostInSeconds;
+        String lifeLost_day =  Integer.toString(Math.floorDiv( time , (24 * 3600)));
+        time = time % (24 * 3600);
+        String lifeLost_hour = Integer.toString(Math.floorDiv(time , 3600));
+        time %= 3600;
+        int lifeLost_minute =Math.floorDiv( time , 60);
 
+        return ((lifeLost_day + "d " + lifeLost_hour + "h " + lifeLost_minute + "m"));
+    }
     class MyAdapter extends ArrayAdapter<String>{
         Context context;
         String rTitle[];
