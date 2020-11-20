@@ -51,6 +51,16 @@ public class JourneyFragment extends Fragment {
     private TextView journey_money;
     private TextView journey_lifeLost;
     private TextView FirstDescription;
+
+    private TextView WeekCost;
+    private TextView WeekLife;
+
+    private TextView MonthCost;
+    private TextView MonthLife;
+
+    private TextView YearCost;
+    private TextView YearLife;
+
     private ImageView AddictiveObject;
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -150,6 +160,28 @@ public class JourneyFragment extends Fragment {
         journey_numberOfConsumption.setText(displayUsage);
         journey_money.setText(displayMoneyCost);
         journey_lifeLost.setText(displayLifeLost);
+
+        WeekCost = view.findViewById(R.id.WeekCost);
+        String aWeekCost = Integer.toString( getCost()*7);
+        WeekCost.setText(aWeekCost);
+
+        //WeekLife = view.findViewById(R.id.WeekLife);
+        //WeekLife.setText(get);
+
+
+        MonthCost = view.findViewById(R.id.MonthCost);
+        String aMonthCost = Integer.toString(getCost()*30);
+        MonthCost.setText(aMonthCost);
+
+        //MonthLife = view.findViewById(R.id.MonthLife);
+
+        YearCost = view.findViewById(R.id.YearCost);
+        String aYearCost = Integer.toString(getCost()*365);
+        YearCost.setText(aYearCost);
+
+        //YearLife = view.findViewById(R.id.YearLife);
+
+
 
         listView = view.findViewById(R.id.achievement_cards);
 
