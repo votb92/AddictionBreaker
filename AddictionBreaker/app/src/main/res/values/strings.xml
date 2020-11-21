@@ -140,5 +140,6 @@
     <string name="months">Months</string>
     <string name="years">Years</string>
     <string name="back">Go Back</string>
+    <string name="cancel_Reminders">Cancel Reminders</string>
 
 </resources>
