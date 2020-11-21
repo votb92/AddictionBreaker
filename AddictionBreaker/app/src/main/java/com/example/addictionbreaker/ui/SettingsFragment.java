@@ -5,15 +5,20 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.addictionbreaker.NotificationsActivity;
 import com.example.addictionbreaker.R;
+import com.example.addictionbreaker.data.DatabaseHelper;
+import com.example.addictionbreaker.model.User;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,6 +35,10 @@ public class SettingsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private EditText new_name;
+    private Button name_change_button;
+    private DatabaseHelper myDb;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -72,14 +81,34 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        myDb = new DatabaseHelper(view.getContext());
         Button notifications = view.findViewById(R.id.notification_button);
-
+        new_name = view.findViewById(R.id.new_name);
         notifications.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), NotificationsActivity.class);
                 startActivity(intent);
             }
+        });
+        name_change_button = view.findViewById(R.id.name_change_button);
+        name_change_button.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                //Log.i("test", name.getText().toString());
+                if(new_name.getText().toString().isEmpty()){
+                    AlertDialog a = new AlertDialog.Builder(name_change_button.getContext()).create();
+                    a.setTitle("Missing Fields");
+                    a.setMessage("Please enter your name");
+                    a.show();
+                }
+                else {
+                    myDb.updateName(new_name.getText().toString());
+                    Toast.makeText(view.getContext(), "Name Changed", Toast.LENGTH_LONG).show();
+                }
+            }
+
         });
     }
 }

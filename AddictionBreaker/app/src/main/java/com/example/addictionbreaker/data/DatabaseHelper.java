@@ -54,6 +54,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean updateName(String name){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, name);
+        db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{"1"});
+        return true;
+    }
+
     public boolean updateStartInfo(String year, String month, String day, String hour, String minute){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
