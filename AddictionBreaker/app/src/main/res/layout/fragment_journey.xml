@@ -152,10 +152,9 @@
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 android:layout_marginTop="24dp"
                 android:text="1 Week"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.026"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
@@ -163,7 +162,7 @@
                 android:id="@+id/WeekCost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="108dp"
+                android:layout_marginStart="112dp"
                 android:layout_marginTop="24dp"
                 android:text="TextView"
                 app:layout_constraintEnd_toStartOf="@+id/WeekLife"
@@ -176,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="4dp"
                 android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
@@ -195,7 +194,7 @@
                 android:id="@+id/MonthCost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="104dp"
+                android:layout_marginStart="108dp"
                 android:layout_marginTop="24dp"
                 android:text="TextView"
                 app:layout_constraintStart_toEndOf="@+id/textView24"
@@ -207,9 +206,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="4dp"
                 android:text="TextView"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.979"
                 app:layout_constraintStart_toEndOf="@+id/MonthCost"
                 app:layout_constraintTop_toBottomOf="@+id/WeekLife" />
 
@@ -227,7 +227,7 @@
                 android:id="@+id/YearCost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="92dp"
+                android:layout_marginStart="120dp"
                 android:layout_marginTop="24dp"
                 android:text="space"
                 app:layout_constraintStart_toEndOf="@+id/textView36"
@@ -239,9 +239,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="96dp"
                 android:layout_marginTop="24dp"
+                android:layout_marginEnd="4dp"
                 android:text="space"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.047"
+                app:layout_constraintHorizontal_bias="0.84"
                 app:layout_constraintStart_toEndOf="@+id/YearCost"
                 app:layout_constraintTop_toBottomOf="@+id/MonthLife" />
 
