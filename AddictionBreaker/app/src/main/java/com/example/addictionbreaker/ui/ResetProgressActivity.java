@@ -126,9 +126,12 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
         this.hour = hour;
         this.minute = minute;
-
+        String fixedMinute = String.valueOf(minute);
+        if(minute < 10){
+            fixedMinute = "0" + fixedMinute;
+        }
         if(resetInfo.getText().toString().isEmpty()) {
-            String time = "Start Time & Date- " + hour + ":" + minute;
+            String time = "Start Time & Date- " + hour + ":" + fixedMinute;
             if(hour >= 0 && hour < 12){
                 time = time + " AM";
             }else{
@@ -136,7 +139,7 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
             }
             resetInfo.setText(time);
         }else if(resetInfo.getText().toString().contains(":")){
-            String time = "Start Time & Date- " + hour + ":" + minute;
+            String time = "Start Time & Date- " + hour + ":" + fixedMinute;
             if(hour >= 0 && hour < 12){
                 time = time + " AM";
             }else{
@@ -145,7 +148,7 @@ public class ResetProgressActivity extends AppCompatActivity implements DatePick
             resetInfo.setText(time);
         }
         else {
-            String time = " at "  + hour + ":" + minute;
+            String time = " at "  + hour + ":" + fixedMinute;
             if(hour >= 0 && hour < 12){
                 time = time + " AM";
             }else{

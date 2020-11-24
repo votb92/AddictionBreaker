@@ -146,11 +146,15 @@ public class NotificationsActivity extends AppCompatActivity implements TimePick
     public void onTimeSet(TimePicker timePicker, int hour, int minute) {
         calendar.set(Calendar.HOUR_OF_DAY, hour);
         calendar.set(Calendar.MINUTE, minute);
+        String fixedMinute = String.valueOf(minute);
+        if(minute < 10){
+            fixedMinute = "0" + fixedMinute;
+        }
         String time;
         if (hour >= 0 && hour < 12) {
-            time = "Notification Time- " + hour + ":" + minute + " AM";
+            time = "Notification Time- " + hour + ":" + fixedMinute + " AM";
         } else {
-            time = "Notification Time- " + hour + ":" + minute + " PM";
+            time = "Notification Time- " + hour + ":" + fixedMinute + " PM";
         }
 
         timeText.setText(time);
