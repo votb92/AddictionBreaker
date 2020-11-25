@@ -21,6 +21,7 @@ import com.example.addictionbreaker.data.DatabaseHelper;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +44,20 @@ public class HomeFragment extends Fragment {
     private TextView weeks_count;
     private TextView months_count;
     private TextView year_count;
+    private TextView random_quote;
+    private TextView author;
+    Random rand = new Random();
+    int randomNumber;
+    private String[] random_quotes={"Be yourself; everyone else is already taken.","― Oscar Wilde",
+            "Be the change that you wish to see in the world.", "― Mahatma Gandhi",
+            "No one can make you feel inferior without your consent.", "― Eleanor Roosevelt",
+            "Live as if you were to die tomorrow. Learn as if you were to live forever.","― Mahatma Gandhi",
+            "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.","― Albert Einstein",
+            "It is never too late to be what you might have been.", "― George Eliot",
+            "Life isn't about finding yourself. Life is about creating yourself","― George Bernard Shaw",
+            "Success is not final, failure is not fatal: it is the courage to continue that counts", "― Winston S. Churchill",
+            "Don't be afraid of your fears. They're not there to scare you. They're there to let you know that something is worth it.", "― C. JoyBell C."
+    };
     ArrayList<Integer> startDate = new ArrayList<>();
 
 
@@ -105,6 +120,16 @@ public class HomeFragment extends Fragment {
         year_count = view.findViewById(R.id.years_count);
         viewAll();
         gettingNumberOfDays();
+
+        random_quote = view.findViewById(R.id.random_quote);
+        author = view.findViewById(R.id.author);
+        randomNumber = rand.nextInt(random_quotes.length-1);
+        while (isEven(randomNumber)){
+            randomNumber = rand.nextInt(random_quotes.length-1);
+        }
+        random_quote.setText(random_quotes[randomNumber-1]);
+        author.setText(random_quotes[randomNumber]);
+
 
         Calendar startingDate = Calendar.getInstance();
         Calendar currentDate = Calendar.getInstance();
@@ -209,4 +234,6 @@ public class HomeFragment extends Fragment {
     public boolean setDay(long newNumberOfDays){
         return myDb.updateDay(newNumberOfDays);
     }
+
+    boolean isEven(int num) { return ((num % 2) == 0); }
 }
