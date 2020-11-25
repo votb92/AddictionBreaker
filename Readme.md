@@ -1,4 +1,4 @@
-# Group M Project
+# ADDICTION BREAKER
 
 Members:
 - Jeffrey Duah
