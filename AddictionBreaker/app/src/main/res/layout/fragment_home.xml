@@ -11,14 +11,13 @@
         android:id="@+id/home_topText3"
         android:layout_width="104dp"
         android:layout_height="46dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="8dp"
         android:gravity="center"
         android:text="@string/addiction_tag"
         android:textColor="@color/design_default_color_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progress_text"
+        app:layout_constraintBottom_toTopOf="@+id/home_numberOfDays"
+        app:layout_constraintEnd_toEndOf="@+id/home_numberOfDays"
+        app:layout_constraintStart_toStartOf="@+id/home_numberOfDays"
         tools:text="NO MORE ADDICTION" />
 
     <Button
@@ -40,8 +39,8 @@
         android:gravity="center"
         android:text="@string/days_tag"
         android:textColor="@color/design_default_color_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/home_numberOfDays"
+        app:layout_constraintStart_toStartOf="@+id/home_numberOfDays"
         app:layout_constraintTop_toBottomOf="@+id/home_numberOfDays"
         tools:text="DAYS SO FAR" />
 
@@ -51,19 +50,22 @@
         android:layout_height="wrap_content"
         android:textColor="#FFFFFF"
         android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_topText3"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
         tools:text="0" />
 
     <Button
         android:id="@+id/reset_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="@string/reset"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yourProfileButton" />
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/greeting_text"
@@ -83,13 +85,13 @@
         android:id="@+id/progress_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="sans-serif-light"
         android:text="@string/welcome_progress"
         android:textColor="#FDFDFD"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greeting_text" />
 
@@ -98,36 +100,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/weeks"
         android:textColor="#FBF9F9"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/yourProfileButton"
+        app:layout_constraintBottom_toTopOf="@+id/reset_button"
+        app:layout_constraintEnd_toStartOf="@+id/reset_button"
+        app:layout_constraintHorizontal_bias="0.014"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/months_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/months"
         android:textColor="#FFFDFD"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/yourProfileButton"
+        app:layout_constraintBottom_toTopOf="@+id/reset_button"
         app:layout_constraintEnd_toStartOf="@+id/years_text"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toEndOf="@+id/weeks_text" />
 
     <TextView
         android:id="@+id/years_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/years"
         android:textColor="#FAF9F9"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/yourProfileButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/reset_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/reset_button" />
 
     <TextView
         android:id="@+id/weeks_count"
@@ -162,5 +169,16 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/years_text"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="281dp"
+        android:layout_height="251dp"
+        android:layout_marginTop="188dp"
+        android:src="@drawable/home_circle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

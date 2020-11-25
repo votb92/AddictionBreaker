@@ -86,17 +86,17 @@ public class JourneyFragment extends Fragment {
             "1 Month",
             "2 Months",
             "100 Days"};
-    int images[]={R.drawable.empty_checkbox,
-            R.drawable.empty_checkbox,
-            R.drawable.empty_checkbox,
-            R.drawable.empty_checkbox,
-            R.drawable.empty_checkbox,
-            R.drawable.empty_checkbox,
-            R.drawable.empty_checkbox,
-            R.drawable.empty_checkbox,
-            R.drawable.empty_checkbox};
+    int images[]={R.drawable.badge,
+            R.drawable.badge,
+            R.drawable.badge,
+            R.drawable.badge,
+            R.drawable.badge,
+            R.drawable.badge,
+            R.drawable.badge,
+            R.drawable.badge,
+            R.drawable.badge};
 
-    int checkedbox = R.drawable.checked_box;
+    int checkedbox = R.drawable.badge_color;
     int[] requirement= {1, 3 , 5, 7, 10, 14, 30, 60, 100};
 
     String[] rFirstDescription = {"Cigarettes YOU didn't Smoke","Alcoholic Drinks YOU didn't consume","Pod YOU didn't Smoked"};
