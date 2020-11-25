@@ -99,6 +99,7 @@ public class HomeFragment extends Fragment {
         getStartDate();
 
         yourProfileButton = view.findViewById(R.id.yourProfileButton);
+        yourProfileButton.setVisibility(View.GONE);
         weeks_count = view.findViewById(R.id.weeks_count);
         months_count = view.findViewById(R.id.months_count);
         year_count = view.findViewById(R.id.years_count);
