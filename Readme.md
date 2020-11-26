@@ -7,6 +7,7 @@ Built with Java and Android Studio.
 - Keep tracks of how many days user has stayed cleaned
 - Give some basic stastics on time, financial savings in the future
 - Some basic notification setting to reenforce the process
+- Links to helpful resources
 - Milestones achievements 
 ## Screenshots:
 [<img src="/imgs/home.jpg" align="left"
