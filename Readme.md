@@ -3,13 +3,13 @@
 ## ABOUT:
 Addiction Breaker was created to keep track of undesired behaviors. 
 Built with Java and Android Studio.
-## Features:
+## FEATURES:
 - Keep tracks of how many days user has stayed cleaned
 - Give some basic stastics on time, financial savings in the future
 - Some basic notification setting to reenforce the process
 - Links to helpful resources
 - Milestones achievements 
-## Screenshots:
+## SCREENSHOTS:
 [<img src="/imgs/home.jpg" align="left"
 width="200"
     hspace="10" vspace="10">](/imgs/home.jpg)
