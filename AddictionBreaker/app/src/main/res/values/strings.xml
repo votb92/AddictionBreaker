@@ -141,5 +141,6 @@
     <string name="years">Years</string>
     <string name="back">Go Back</string>
     <string name="cancel_Reminders">Cancel Reminders</string>
-
+    <string name="change">Languages</string>
+    <string name="language_change">Languages</string>
 </resources>
