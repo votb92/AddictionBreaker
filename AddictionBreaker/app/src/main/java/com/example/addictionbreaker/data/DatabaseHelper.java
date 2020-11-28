@@ -27,6 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_12 = "STARTMINUTE";
     public static final String COL_13 = "REMINDERHOUR";
     public static final String COL_14 = "REMINDERMINUTE";
+    public static final String COL_15 = "PROGRESS";
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -36,13 +37,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+ TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, " +
                 "AGE INTEGER, ADDICTION TEXT, FREQUENCY INTEGER, COST INTEGER, DAY INTEGER, STARTYEAR INTEGER, STARTMONTH INTEGER,STARTDAY INTEGER,STARTHOUR INTEGER,STARTMINUTE INTEGER," +
-                "REMINDERHOUR INTEGER, REMINDERMINUTE INTEGER)");
+                "REMINDERHOUR INTEGER, REMINDERMINUTE INTEGER, PROGRESS INTEGER)" );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME);
         onCreate(db);
+    }
+
+    public boolean updateProgress(int progress){
+        String numberOfDay = Integer.toString(progress);
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_15, numberOfDay);
+        db.update(TABLE_NAME, contentValues, "ID = ?", new String[]{"1"});
+        return true;
     }
 
     public boolean updateDay(long days){

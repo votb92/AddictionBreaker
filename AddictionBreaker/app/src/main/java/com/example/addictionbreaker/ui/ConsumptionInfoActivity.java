@@ -87,6 +87,7 @@ public class ConsumptionInfoActivity extends AppCompatActivity implements DatePi
                     myPrefs.edit().putString("userInfo", newInfo).commit();
                     boolean isInserted = myDb.insertData(user.getName(), Integer.toString(user.getAge()), user.getAddiction(),Integer.toString(user.getConsumption()),Integer.toString(user.getCostOfAddiction()),
                             Integer.toString(year),Integer.toString(month),Integer.toString(day),Integer.toString(hour),Integer.toString(minute) );
+                    myDb.updateProgress(0);
                     if(isInserted){
                         Toast.makeText(ConsumptionInfoActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
                     }
