@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/consumption_info_greeting"
+        android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/averageConsumption"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="@string/consumption_info_how_frequent" />
@@ -32,6 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/averageCost"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="@string/consumption_info_cost" />
@@ -43,11 +46,12 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="24dp"
+        android:autofillHints="1"
         android:ems="10"
         android:hint="@string/consumption_info_amount"
         android:inputType="numberDecimal"
-        android:autofillHints="1"
         android:maxLength="4"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -59,11 +63,12 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="52dp"
         android:layout_marginEnd="24dp"
+        android:autofillHints="1"
         android:ems="10"
         android:hint="@string/consumption_info_amount"
         android:inputType="numberDecimal"
         android:maxLength="6"
-        android:autofillHints="1"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,6 +113,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:text="@string/start_date"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/averageCost" />
@@ -117,6 +123,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/start_date_button" />
 
