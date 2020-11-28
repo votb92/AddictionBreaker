@@ -24,6 +24,8 @@ import android.widget.TextView;
 import com.example.addictionbreaker.R;
 import com.example.addictionbreaker.data.DatabaseHelper;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link JourneyFragment#newInstance} factory method to
@@ -101,6 +103,8 @@ public class JourneyFragment extends Fragment {
 
     String[] rFirstDescription = {"Cigarettes YOU didn't Smoke","Alcoholic Drinks YOU didn't consume","Pod YOU didn't Smoked"};
     int[] rAddictiveObjects = {R.drawable.add3, R.drawable.alcohol, R.drawable.vape};
+    ArrayList<Integer> rProgresses = new ArrayList<>();
+    private int progress;
     public JourneyFragment() {
         // Required empty public constructor
     }
@@ -187,6 +191,16 @@ public class JourneyFragment extends Fragment {
 
         MyAdapter adapter = new MyAdapter(getActivity().getApplicationContext(), mTitle, mDescription, images);
         listView.setAdapter(adapter);
+        for(int i = 0; i< requirement.length; i++){
+            int temp = (int)Math.floor(getNumberOfDays()*100.0/requirement[i]);
+            if (temp < 100){
+                rProgresses.add(temp);
+            }
+        }
+        myDb.updateProgress(rProgresses.get(0));
+
+//        progress = rProgresses.get(0);
+//        myDb.updateProgress(progress);
 
     }
     private void settingImgAndTitles() {
@@ -295,7 +309,7 @@ public class JourneyFragment extends Fragment {
                 imgs.setImageResource(checkedbox);
             }
             else {
-            imgs.setImageResource(rImgs[position]);
+                imgs.setImageResource(rImgs[position]);
             }
             return achievement_list;
         }

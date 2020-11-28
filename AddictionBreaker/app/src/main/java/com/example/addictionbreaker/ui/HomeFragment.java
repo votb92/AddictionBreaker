@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.addictionbreaker.R;
@@ -46,6 +47,7 @@ public class HomeFragment extends Fragment {
     private TextView year_count;
     private TextView random_quote;
     private TextView author;
+    private ProgressBar progressBar;
     Random rand = new Random();
     int randomNumber;
     private String[] random_quotes={"Be yourself; everyone else is already taken.","― Oscar Wilde",
@@ -60,7 +62,7 @@ public class HomeFragment extends Fragment {
     };
     ArrayList<Integer> startDate = new ArrayList<>();
 
-
+    private int progress = 0;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -163,6 +165,10 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        progress = getProgress();
+        progressBar = view.findViewById(R.id.progressBar);
+        progressBar.setProgress(progress);
+
     }
 
     private int gettingNumberOfDays() {
@@ -172,6 +178,15 @@ public class HomeFragment extends Fragment {
             break;
         }
         return Integer.parseInt(numbersOfDays);
+    }
+    private int getProgress() {
+        Cursor res = myDb.getAllData();
+        String progress = null;
+        while(res.moveToNext()) {
+            progress = res.getString(14);
+            break;
+        }
+        return Integer.parseInt(progress);
     }
 
     private void getStartDate(){
@@ -209,6 +224,7 @@ public class HomeFragment extends Fragment {
                             information.append("COST: " + res.getString(5) +"\n");
                             information.append("DAYS WITHOUT USING: " + res.getString(6) +"\n");
                             information.append("STARTING POINT, YEAR: " + res.getString(8)+ "\n");
+                            information.append("PROGRESS" +res.getString(14));
                         }
                         showMessage("Data", information.toString());
                     }
