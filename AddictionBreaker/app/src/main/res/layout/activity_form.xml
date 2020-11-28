@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/greeting"
-        android:textColor="#0C0C0C"
+        android:textColor="#F1EFEF"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +32,7 @@
         android:hint="@string/hint_name"
         android:inputType="textPersonName"
         android:maxLength="20"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="@string/form_name"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/userName"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -52,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:text="@string/form_age"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/age"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -67,6 +70,7 @@
         android:hint="@string/hint_age"
         android:inputType="number"
         android:maxLength="3"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:text="@string/form_addiction_type"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/age" />
