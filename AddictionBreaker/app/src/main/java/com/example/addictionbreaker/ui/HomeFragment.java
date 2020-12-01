@@ -2,13 +2,16 @@ package com.example.addictionbreaker.ui;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +51,8 @@ public class HomeFragment extends Fragment {
     private TextView random_quote;
     private TextView author;
     private ProgressBar progressBar;
+    private SwipeRefreshLayout swipeRefreshLayout;
+    private Fragment fragment = this;
     Random rand = new Random();
     int randomNumber;
     private String[] random_quotes={"Be yourself; everyone else is already taken.","― Oscar Wilde",
@@ -61,6 +66,7 @@ public class HomeFragment extends Fragment {
             "Don't be afraid of your fears. They're not there to scare you. They're there to let you know that something is worth it.", "― C. JoyBell C."
     };
     ArrayList<Integer> startDate = new ArrayList<>();
+    Calendar startTime = Calendar.getInstance();
 
     private int progress = 0;
     // TODO: Rename and change types of parameters
@@ -111,17 +117,21 @@ public class HomeFragment extends Fragment {
         greeting = view.findViewById(R.id.greeting_text);
         myDb = new DatabaseHelper(getContext());
         String userName = myDb.getUserName();
+        MyTask task = new MyTask();
+        task.execute();
 
         greeting.append(" " + userName);
-        getStartDate();
+        //getStartDate();
 
         yourProfileButton = view.findViewById(R.id.yourProfileButton);
         yourProfileButton.setVisibility(View.GONE);
+        home_numberOfDays = view.findViewById(R.id.home_numberOfDays);
         weeks_count = view.findViewById(R.id.weeks_count);
         months_count = view.findViewById(R.id.months_count);
         year_count = view.findViewById(R.id.years_count);
+        swipeRefreshLayout = view.findViewById(R.id.swiperefresh);
         viewAll();
-        gettingNumberOfDays();
+        //gettingNumberOfDays();
 
         random_quote = view.findViewById(R.id.random_quote);
         author = view.findViewById(R.id.author);
@@ -133,7 +143,7 @@ public class HomeFragment extends Fragment {
         author.setText(random_quotes[randomNumber]);
 
 
-        Calendar startingDate = Calendar.getInstance();
+        /*Calendar startingDate = Calendar.getInstance();
         Calendar currentDate = Calendar.getInstance();
         startingDate.set(startDate.get(0), startDate.get(1), startDate.get(2), startDate.get(3), startDate.get(4));
         currentDate.set(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH),
@@ -144,6 +154,7 @@ public class HomeFragment extends Fragment {
 
         long difference = currentInMillis - startingInMillis;
         long numDays = difference / (24 * 60 * 60 * 1000);
+        Log.i("days", String.valueOf(numDays));
         int weeks = (int) numDays / 7;
         int months = (int) numDays/ 30;
         int years = (int) numDays/365;
@@ -152,10 +163,8 @@ public class HomeFragment extends Fragment {
         months_count.setText(String.valueOf(months));
         year_count.setText(String.valueOf(years));
         numbersOfDays = String.valueOf(numDays);
-        setDay(numDays);
+        setDay(numDays);*/
 
-        home_numberOfDays = view.findViewById(R.id.home_numberOfDays);
-        home_numberOfDays.setText(numbersOfDays);
         resetButton = view.findViewById(R.id.reset_button);
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,6 +177,14 @@ public class HomeFragment extends Fragment {
         progress = getProgress();
         progressBar = view.findViewById(R.id.progressBar);
         progressBar.setProgress(progress);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                getParentFragmentManager().beginTransaction().detach(fragment).attach(fragment).commit();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
     }
 
@@ -197,6 +214,14 @@ public class HomeFragment extends Fragment {
             startDate.add(res.getInt(9));
             startDate.add(res.getInt(10));
             startDate.add(res.getInt(11));
+        }
+    }
+
+    private void getStartTime(){
+        Cursor res = myDb.getAllData();
+        while(res.moveToNext()){
+            startTime.set(Calendar.HOUR_OF_DAY, res.getInt(10));
+            startTime.set(Calendar.MINUTE, res.getInt(11));
         }
     }
 
@@ -252,4 +277,41 @@ public class HomeFragment extends Fragment {
     }
 
     boolean isEven(int num) { return ((num % 2) == 0); }
+
+    private class MyTask extends AsyncTask<Void, Void, String> {
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            getStartDate();
+            gettingNumberOfDays();
+            return "done";
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            Calendar startingDate = Calendar.getInstance();
+            Calendar currentDate = Calendar.getInstance();
+            startingDate.set(startDate.get(0), startDate.get(1), startDate.get(2), startDate.get(3), startDate.get(4));
+            currentDate.set(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH),
+                    Calendar.getInstance().get(Calendar.DAY_OF_MONTH), Calendar.getInstance().get(Calendar.HOUR_OF_DAY), Calendar.getInstance().get(Calendar.MINUTE));
+
+            long startingInMillis = startingDate.getTimeInMillis();
+            long currentInMillis = currentDate.getTimeInMillis();
+
+            long difference = currentInMillis - startingInMillis;
+            long numDays = difference / (24 * 60 * 60 * 1000);
+            Log.i("days", String.valueOf(numDays));
+            int weeks = (int) numDays / 7;
+            int months = (int) numDays/ 30;
+            int years = (int) numDays/365;
+
+            weeks_count.setText(String.valueOf(weeks));
+            months_count.setText(String.valueOf(months));
+            year_count.setText(String.valueOf(years));
+            numbersOfDays = String.valueOf(numDays);
+            setDay(numDays);
+            home_numberOfDays.setText(numbersOfDays);
+
+        }
+    }
 }
