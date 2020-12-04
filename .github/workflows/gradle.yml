@@ -26,3 +26,6 @@ jobs:
       run: AddictionBreaker/gradlew build
     - name: Send Push Notification
       uses: techulus/push-github-action@1.0.0
+      env:
+        API_KEY: ${{ 43b178f1-fb4c-4766-8336-bb249a9edd2f }}
+        MESSAGE: "Hey Thinh>, there's a new build!"
