@@ -24,3 +24,5 @@ jobs:
       run: chmod +x AddictionBreaker/gradlew
     - name: Build with Gradle
       run: AddictionBreaker/gradlew build
+    - name: Send Push Notification
+      uses: techulus/push-github-action@1.0.0
