@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Rompedor de adicciones</string>
+    <string name="start_button">Comienzo</string>
+    <string name="background">fondo-img</string>
+
+    <string name="greeting">¡Empecemos!</string>
+    <string name="hint_name">¡Introduzca su nombre!</string>
+    <string name="hint_age">¿Cuantos años tienes?</string>
+    <string name="form_name">Nombre:</string>
+    <string name="form_confirm_button">CONFIRMAR</string>
+    <string name="form_age">Años:</string>
+
+    <string name="form_addiction_type">¿Cuál es la adicción de la que le gustaría deshacerse?</string>
+    <array name="addictions">
+        <item>Cigarrillos</item>
+        <item>Alcohol</item>
+        <item>Vapear/Juuling</item>
+    </array>
+
+    <string name="consumption_info_greeting">Algunas preguntas más</string>
+
+    <string name="consumption_info_how_frequent">¿Cuántos %1$s, en promedio, consume al día?</string>
+    <string name="consumption_info_amount">Ingrese la cantidad</string>
+    <string name="consumption_info_cost">¿Cuánto suele gastar en %1$s?</string>
+    <string name="consumption_info_letsGo_btn">¡VAMONOS!</string>
+    <string name="title_activity_adiction_list">Lista de adicciones</string>
+
+    <string name="first_fragment_label">Primer Fragmento</string>
+    <string name="second_fragment_label">Segundo Fragmento</string>
+    <string name="next">próximo</string>
+    <string name="previous">Anterior</string>
+    <string name="hello_first_fragment">Hola primer fragmento</string>
+    <string name="hello_second_fragment">Hola segundo fragmento. Arg: %1$s</string>
+    <string name="date">Fecha</string>
+    <string name="start_date">Ingrese su fecha y hora de inicio</string>
+    <string name="start_time">Hora</string>
+    <string name="settings">Configuraciones</string>
+    <string name="links">Links</string>
+    <string name="home">Hogar</string>
+    <string name="journey">Viaje</string>
+    <string name="addiction_tag">NO MAS ADICCION</string>
+    <string name="days_tag">DÍAS HASTA AHORA</string>
+
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+
+    <string name="messages_header">Mensajes</string>
+    <string name="sync_header">Sincronizar</string>
+
+    <string name="signature_title">Su firma</string>
+    <string name="reply_title">Acción de respuesta predeterminada</string>
+
+    <string name="sync_title">Sincronizar el correo electrónico periódicamente</string>
+    <string name="attachment_title">Descargar archivos adjuntos entrantes</string>
+    <string name="attachment_summary_on">Descargar automáticamente archivos adjuntos para correos electrónicos entrantes
+    </string>
+    <string name="attachment_summary_off">Descargue archivos adjuntos solo cuando se soliciten manualmente</string>
+    <string name="profile">PERFIL</string>
+    <string name="overcoming_alcohol_addiction">superando_alcohol_adicción</string>
+    <string name="Overcoming_alcohol_addiction" />
+    <string name="links_for_alcohol_addictions">Enlaces para la adicción al alcohol</string>
+    <string name="hotline_numbers_for_addictions_etc" />
+    <string name="suicide_preventions">Prevención del suicidio</string>
+    <string name="_1_800_273_8255" />
+    <string name="alcohol_and_drug_abuses">Abuso de alcohol y drogas</string>
+    <string name="new_start_date">Seleccione su nueva fecha y hora de inicio</string>
+    <string name="reset_title">Volvamos al camino</string>
+    <string name="reset">Restablecer Progreso</string>
+    <string name="overcoming_alcohol_addiction_article">Superar la adicción al alcohol (Artículo)</string>
+    <string name="what_happens_when_you_stop_article">Qué sucede cuando se detiene (Artículo)</string>
+    <string name="motivations_for_quitting">Motivaciones para dejar de fumar</string>
+    <string name="effects_on_the_body">Efectos en el cuerpo</string>
+    <string name="alcohol_effects_1">Efectos del alcohol 1</string>
+    <string name="alcohol_effects_2">Efectos del alcohol 2</string>
+    <string name="links_for_cigarette_vaping_addictions">Enlaces para adicciones al Cigarrillo/Vapeo</string>
+    <string name="impact_of_alcohol_on_developing_brains_video">Impacto del alcohol en los cerebros en desarrollo (Video)</string>
+    <string name="reason_to_quit_smoking_article">Razón para dejar de fumar (Artículo)</string>
+    <string name="hotline_numbers_for_addictions">Números de línea directa para adicciones</string>
+    <string name="alcohol_addiction_hotline">Línea directa de adicción al alcohol</string>
+    <string name="_1_844_289_0879" tools:ignore="TypographyDashes">1–844-289-0879</string>
+    <string name="quit_smoking_help_hotline">Línea directa de ayuda para dejar de fumar</string>
+    <string name="_1_800_784_8669" tools:ignore="TypographyDashes">1-800-784-8669</string>
+    <string name="alcohol_effects_on_the_body_article">Efectos del alcohol en el cuerpo (Artículo)</string>
+    <string name="alcohol_impact_article">Impacto del alcohol (Artículo)</string>
+    <string name="smoking_effects_on_the_body_article">Efectos del tabaquismo en el cuerpo (Artículo)</string>
+    <string name="vaping_effects_on_the_body_article">Efectos de vapeo en el cuerpo (Artículo)</string>
+    <string name="links_for_smoking_vs_vaping">Vínculos entre fumar y vapear</string>
+    <string name="impact_of_smoking_video">Impacto del tabaquismo (Video)</string>
+    <string name="which_is_safer_smoking_or_vaping_article">¿Qué es más seguro fumar o vapear (Artículo)?</string>
+    <string name="notification_prompt">Configurar Notificaciones</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="pick_time_for_notifications">Elija la hora a la que desea recibir notificaciones</string>
+    <string name="journey_lifeLost">%1$s d %2$s h %3$s m</string>
+    <string name="journey_money">$ %1$s </string>
+    <string name="journey_numberOfConsumption">%1$s</string>
+    <string name="done">Hecho</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="welcome_progress">Su progreso</string>
+    <string name="weeks">Semanas</string>
+    <string name="months">Meses</string>
+    <string name="years">Años</string>
+    <string name="back">Regresa</string>
+    <string name="cancel_Reminders">Cancelar Recordatorios</string>
+    <string name="change_language">Cambiar Idioma</string>
+    <string name="change">Cambio</string>
+    <string name="name">Nombre</string>
+    <string name="names">Nombres</string>
+    <string name="change_name">Cambiar Nombre</string>
+
+</resources>

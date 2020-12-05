@@ -35,21 +35,21 @@
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="201dp"
-                android:layout_height="23dp"
+                android:layout_width="217dp"
+                android:layout_height="31dp"
                 android:layout_marginTop="36dp"
-                android:text="Links For Alcohol Addiction"
+                android:text="@string/links_for_alcohol_addictions"
                 android:textColor="#FF0000"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8"
-                tools:ignore="HardcodedText" />
+                app:layout_constraintTop_toBottomOf="@+id/textView8"/>
+
 
             <TextView
                 android:id="@+id/textView17"
-                android:layout_width="159dp"
-                android:layout_height="26dp"
+                android:layout_width="197dp"
+                android:layout_height="wrap_content"
                 android:text="@string/motivations_for_quitting"
                 android:textColor="#E91E63"
                 android:textStyle="italic"
@@ -83,8 +83,8 @@
 
             <TextView
                 android:id="@+id/textView19"
-                android:layout_width="138dp"
-                android:layout_height="19dp"
+                android:layout_width="195dp"
+                android:layout_height="wrap_content"
                 android:text="@string/effects_on_the_body"
                 android:textColor="#FF0057"
                 android:textStyle="italic"
@@ -116,8 +116,8 @@
 
             <TextView
                 android:id="@+id/textView22"
-                android:layout_width="237dp"
-                android:layout_height="19dp"
+                android:layout_width="261dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/links_for_cigarette_vaping_addictions"
                 android:textColor="#FF0057"
@@ -128,8 +128,8 @@
 
             <TextView
                 android:id="@+id/Alcohol_Impact_Brain"
-                android:layout_width="252dp"
-                android:layout_height="43dp"
+                android:layout_width="258dp"
+                android:layout_height="30dp"
                 android:layout_marginTop="2dp"
                 android:text="@string/impact_of_alcohol_on_developing_brains_video"
                 android:textColor="#FFFFFF"
@@ -224,13 +224,13 @@
                 android:layout_width="136dp"
                 android:layout_height="21dp"
                 android:layout_marginTop="4dp"
-                android:text="Suicide Prevention"
-                android:textColor="#FBFBFB"
+                android:text="@string/suicide_preventions"
+                android:textColor="@color/design_default_color_background"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView25"
-                tools:ignore="HardcodedText" />
+                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
 
             <TextView
                 android:id="@+id/textView28"
@@ -246,18 +246,19 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView26"
                 tools:ignore="HardcodedText" />
 
+
             <TextView
                 android:id="@+id/textView29"
                 android:layout_width="176dp"
                 android:layout_height="20dp"
                 android:layout_marginTop="4dp"
-                android:text="Alcohol and Drug Abuse"
+                android:text="@string/alcohol_and_drug_abuses"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView28"
-                tools:ignore="HardcodedText" />
+                app:layout_constraintTop_toBottomOf="@+id/textView28"/>
+
 
             <TextView
                 android:id="@+id/textView30"
@@ -272,6 +273,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView29"
                 tools:ignore="HardcodedText" />
+
 
             <TextView
                 android:id="@+id/textView31"

@@ -1,5 +1,6 @@
 package com.example.addictionbreaker.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,7 +19,8 @@ import android.widget.Toast;
 import com.example.addictionbreaker.NotificationsActivity;
 import com.example.addictionbreaker.R;
 import com.example.addictionbreaker.data.DatabaseHelper;
-import com.example.addictionbreaker.model.User;
+
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,6 +41,8 @@ public class SettingsFragment extends Fragment {
     private EditText new_name;
     private Button name_change_button;
     private DatabaseHelper myDb;
+    private Context context;
+
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -65,6 +69,7 @@ public class SettingsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -84,6 +89,7 @@ public class SettingsFragment extends Fragment {
         myDb = new DatabaseHelper(view.getContext());
         Button notifications = view.findViewById(R.id.notification_button);
         new_name = view.findViewById(R.id.new_name);
+
         notifications.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,23 +98,21 @@ public class SettingsFragment extends Fragment {
             }
         });
         name_change_button = view.findViewById(R.id.name_change_button);
-        name_change_button.setOnClickListener(new View.OnClickListener(){
+        name_change_button.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
                 //Log.i("test", name.getText().toString());
-                if(new_name.getText().toString().isEmpty()){
+                if (new_name.getText().toString().isEmpty()) {
                     AlertDialog a = new AlertDialog.Builder(name_change_button.getContext()).create();
                     a.setTitle("Missing Fields");
                     a.setMessage("Please enter your name");
                     a.show();
-                }
-                else {
+                } else {
                     myDb.updateName(new_name.getText().toString());
                     Toast.makeText(view.getContext(), "Name Changed", Toast.LENGTH_LONG).show();
                 }
             }
-
         });
     }
 }

@@ -49,9 +49,11 @@ public class NotificationsActivity extends AppCompatActivity implements TimePick
         Button cancelReminders = findViewById(R.id.cancel_reminders);
         cancelReminders.setEnabled(false);
 
+
         if(isAlarm){
             cancelReminders.setEnabled(true);
         }
+
 
 
         notificationsButton.setOnClickListener(new View.OnClickListener() {
@@ -172,4 +174,7 @@ public class NotificationsActivity extends AppCompatActivity implements TimePick
             notificationManager.createNotificationChannel(channel);
         }
     }
+
+
+
 }

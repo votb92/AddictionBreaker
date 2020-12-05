@@ -98,11 +98,11 @@
     <string name="profile">PROFILE</string>
     <string name="overcoming_alcohol_addiction">overcoming_alcohol_addiction</string>
     <string name="Overcoming_alcohol_addiction" />
-    <string name="links_for_alcohol_addiction" />
+    <string name="links_for_alcohol_addictions">Links For Alcohol Addiction</string>
     <string name="hotline_numbers_for_addictions_etc" />
-    <string name="suicide_prevention" />
+    <string name="suicide_preventions">Suicide Prevention</string>
     <string name="_1_800_273_8255" />
-    <string name="alcohol_and_drug_abuse" />
+    <string name="alcohol_and_drug_abuses">Alcohol and Drug Abuse</string>
     <string name="new_start_date">Select your new Start Date and Time</string>
     <string name="reset_title">Let\'s Get Back on Track</string>
     <string name="reset">Reset Progress</string>
@@ -141,6 +141,11 @@
     <string name="years">Years</string>
     <string name="back">Go Back</string>
     <string name="cancel_Reminders">Cancel Reminders</string>
-    <string name="change">Languages</string>
-    <string name="language_change">Languages</string>
+    <string name="change_language">Change Language</string>
+    <string name="change">CHANGE</string>
+    <string name="name">Name</string>
+    <string name="names">Names</string>
+    <string name="change_name">Change Name</string>
+
+
 </resources>
