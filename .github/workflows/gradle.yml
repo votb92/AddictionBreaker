@@ -24,8 +24,4 @@ jobs:
       run: chmod +x AddictionBreaker/gradlew
     - name: Build with Gradle
       run: AddictionBreaker/gradlew build
-    - name: Send Push Notification
-      uses: techulus/push-github-action@1.0.0
-      env:
-        API_KEY: "5cae6ba8-44f6-43be-b89d-8a33c8d2e250"
-        MESSAGE: "Hey Tommy, there's a new build!"
+   
